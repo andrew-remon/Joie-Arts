@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <stack>
 #include <algorithm> // for clamp in resize filter
 #include <cmath>  // for floor in resize filter
 #include "Image_Class.h"
@@ -7,13 +8,14 @@ using namespace std;
 
 bool isExit = false;
 static Image image;
+stack <Image> st;
 
 enum mainMenuChoice
 {
     load = 1,
     Grayscale = 2, BlackAndWhite = 3, Invert = 4,
     Flip = 5, Rotate = 6, DarkenOrLighten = 7, Resize = 8,
-    save = 9, end = 10
+    save = 9, undo = 10, end = 11
 };
 
 class InputValidation
@@ -153,7 +155,7 @@ public:
         cout << "\nDo you want a Horizontal or Vertical Flip ?\n";
         cout << "Enter 1 for Horizontal and 2 for Vertical\n";
 
-        int x = InputValidation::readIntNumber();
+        int x = InputValidation::readIntNumberBetween(1, 2, "Please Enter 1 or 2\n");
 
         Image flippedImage(image.width,image.height);
 
@@ -193,7 +195,7 @@ public:
         cout << "Do you want a 90 or 180 or 270 degree Rotation ?\n";
         cout << "Enter 1 for 90 degree Rotation and 2 for 180 degree Rotation and 3 for 270 degree Rotation\n";
 
-        int x = InputValidation::readIntNumber();
+        int x = InputValidation::readIntNumberBetween(1, 3, "Please Enter a number from 1 to 3\n");
 
         Image rotatedImage;
 
@@ -359,6 +361,7 @@ private:
         } while (!isFound);
 
         cout << "Image Loaded Successfully.\n";
+        st.push(image);
 
         return image;
     }
@@ -379,105 +382,134 @@ private:
 
     static void applyFilter()
     {
-        std::string ans;
+        string ans;
         cout << "\nDo You want to save this filter? (Y/N) \n";
-        getline(std::cin, ans);
+        getline(cin, ans);
         if (!ans.empty() && (ans[0] == 'Y' || ans[0] == 'y'))
             image = saveImage();
+    }
+
+    static void undoFilter()
+    {
+        cout << "\nAre You Sure you want to undo this filter? (Y/N)\n";
+        string ans = "";
+        getline(cin, ans);
+        if (!ans.empty() && (ans[0] == 'Y' || ans[0] == 'y'))
+        {
+            if (!st.empty() && st.size() >= 2)
+            {
+                st.pop();
+                image = st.top();
+            }
+            else cout << "Sorry, There's No filter to Undo.\n";
+        }
     }
 
     static void performMainMenuChoice(mainMenuChoice choice)
     {
         switch (choice)
         {
-        case mainMenuChoice::load :
-        {
-            image = loadImage();
-            displayMainMenu();
-            break;
-        }
-        case mainMenuChoice::save :
-        {
-            image = saveImage();
-            displayMainMenu();
-            break;
-        }
-        case mainMenuChoice::Grayscale :
-        {
-            image = Filter::grayscaleFilter(image);
-            applyFilter();
-            displayMainMenu();
-            break;
-        }
-        case mainMenuChoice::BlackAndWhite :
-        {
-            image = Filter::blackAndWhiteFilter(image);
-            applyFilter();
-            displayMainMenu();
-            break;
-        }
-        case mainMenuChoice::Invert :
-        {
-            image = Filter::invertFilter(image);
-            applyFilter();
-            displayMainMenu();
-            break;
-        }
-        case mainMenuChoice::Flip :
-        {
-            image = Filter::flipFilter(image);
-            applyFilter();
-            displayMainMenu();
-            break;
-        }
-        case mainMenuChoice::Rotate :
-        {
-            image = Filter::rotateFilter(image);
-            applyFilter();
-            displayMainMenu();
-            break;
-        }
-        case mainMenuChoice::Resize :
-        {
-            image = Filter::resizeFilter(image);
-            applyFilter();
-            displayMainMenu();
-            break;
-        }
-        case mainMenuChoice::DarkenOrLighten :
-        {
-            image = Filter::darkenOrLightenFilter(image);
-            applyFilter();
-            displayMainMenu();
-            break;
-        }
-        case mainMenuChoice::end :
-        {
-            isExit = true;
-
-            char Answer;
-            cout << "Have You saved before exit? (Y/N) ";
-            cin >> Answer;
-
-            if (tolower(Answer) == 'n')
+            case mainMenuChoice::load :
             {
-                char ans;
-                cout << "Do You to save your image? (Y/N) ";
-                cin >> ans;
-
-                if (tolower(ans) == 'y') image = saveImage();
+                image = loadImage();
+                // displayMainMenu();
+                break;
             }
+            case mainMenuChoice::save :
+            {
+                image = saveImage();
+                // displayMainMenu();
+                break;
+            }
+            case mainMenuChoice::Grayscale :
+            {
+                image = Filter::grayscaleFilter(image);
+                st.push(image);
+                applyFilter();
+                // displayMainMenu();
+                break;
+            }
+            case mainMenuChoice::BlackAndWhite :
+            {
+                image = Filter::blackAndWhiteFilter(image);
+                st.push(image);
+                applyFilter();
+                // displayMainMenu();
+                break;
+            }
+            case mainMenuChoice::Invert :
+            {
+                image = Filter::invertFilter(image);
+                st.push(image);
+                applyFilter();
+                // displayMainMenu();
+                break;
+            }
+            case mainMenuChoice::Flip :
+            {
+                image = Filter::flipFilter(image);
+                st.push(image);
+                applyFilter();
+                // displayMainMenu();
+                break;
+            }
+            case mainMenuChoice::Rotate :
+            {
+                image = Filter::rotateFilter(image);
+                st.push(image);
+                applyFilter();
+                // displayMainMenu();
+                break;
+            }
+            case mainMenuChoice::Resize :
+            {
+                image = Filter::resizeFilter(image);
+                st.push(image);
+                applyFilter();
+                // displayMainMenu();
+                break;
+            }
+            case mainMenuChoice::DarkenOrLighten :
+            {
+                image = Filter::darkenOrLightenFilter(image);
+                st.push(image);
+                applyFilter();
+                // displayMainMenu();
+                break;
+            }
+            case mainMenuChoice::undo :
+            {
+                undoFilter();
+                break;
+                // displayMainMenu();
+            }
+            case mainMenuChoice::end :
+            {
+                isExit = true;
 
-            cout << "Program Terminates Successfully. :)\n";
-            break;
-        }
-        default:
-        {
-            cout << "Undefined choice, Please Try Again Later.\n";
-            isExit = true;
-            break;
+                cout << "Have You saved before exit? (Y/N) ";
+                // cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                string answer = "";
+                getline(cin, answer);
+                if (!answer.empty() && (answer[0] == 'N' || answer[0] == 'n'))
+                {
+                    cout << "Do You Want to save your image? (Y/N) ";
+                    string ans = "";
+                    getline(cin, ans);
+                    if (!ans.empty() && (ans[0] == 'Y' || ans[0] == 'y'))
+                        image = saveImage();
+                }
 
-        }
+                cout << "Program Terminates Successfully. :)\n";
+                break;
+            }
+            default :
+            {
+                cout << "Undefined choice, Please Try Again Later.\n";
+                isExit = true;
+                break;
+
+            }
         }
     }
 
@@ -495,22 +527,24 @@ public:
         cout << "[7] DarkenOrLighten Filter\n";
         cout << "[8] Resize Filter\n";
         cout << "[9] Save the image.\n";
-        cout << "[10] Exit\n";
-        performMainMenuChoice((mainMenuChoice)InputValidation::readIntNumberBetween(1, 10, "Please Enter a number between 1 and 10"));
+        cout << "[10] Undo the filter.\n";
+        cout << "[11] Exit\n";
+        performMainMenuChoice((mainMenuChoice)InputValidation::readIntNumberBetween(1, 11, "Please Enter a number between 1 and 11"));
     }
 
     static void beginProgram()
     {
         image = loadImage();
-        displayMainMenu();
+        // displayMainMenu();
     }
 };
 
 
 int main()
 {
+    Main::beginProgram();
     while(!isExit)
     {
-        Main::beginProgram();
+        Main::displayMainMenu();
     }
 }
