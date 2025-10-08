@@ -15,7 +15,7 @@ enum mainMenuChoice
     load = 1,
     Grayscale = 2, BlackAndWhite = 3, Invert = 4,
     Flip = 5, Rotate = 6, DarkenOrLighten = 7, Resize = 8,
-    save = 9, undo = 10, end = 11
+    DetectEdge = 9, save = 10, undo = 11, end = 12
 };
 
 class InputValidation
@@ -332,7 +332,37 @@ public:
         }
         return output;
     }
+    static Image detectBlackEdgeFilter(Image &image) {
+        float kernel[3][3] = {
+            {-1, -1, -1},
+            {-1,  8, -1},                // outline kernel
+            {-1, -1, -1}
+        };
 
+        image = grayscaleFilter(image);
+        Image detected(image.width-2, image.height-2);
+
+        for (int i = 1; i < image.width-1; i++) {
+            for (int j = 1; j < image.height-1; j++) {
+                for (int k = 0; k < 3; k++) {
+                    float val =
+                        image (i-1 ,j-1 , k) * kernel[0][0]
+                    +   image (i   ,j-1 , k) * kernel[1][0]
+                    +   image (i+1 ,j-1 , k) * kernel[2][0]
+                    +   image (i-1 ,j   , k) * kernel[0][1]
+                    +   image (i   ,j   , k) * kernel[1][1]
+                    +   image (i+1 ,j   , k) * kernel[2][1]
+                    +   image (i-1 ,j+1 , k) * kernel[0][2]
+                    +   image (i   ,j+1 , k) * kernel[1][2]
+                    +   image (i+1 ,j+1 , k) * kernel[2][2];
+
+                    val = max(0.0f, min(255.0f, val)); // clamp
+                    detected(i-1, j-1, k) = 255 - val; //invert pixel
+                }
+            }
+        }
+        return detected;
+    }
 };
 
 class Main
@@ -477,6 +507,14 @@ private:
                 // displayMainMenu();
                 break;
             }
+            case mainMenuChoice::DetectEdge :
+            {
+                image = Filter::detectBlackEdgeFilter(image);
+                st.push(image);
+                applyFilter();
+                // displayMainMenu();
+                break;
+            }
             case mainMenuChoice::undo :
             {
                 undoFilter();
@@ -526,10 +564,11 @@ public:
         cout << "[6] Rotate Filter\n";
         cout << "[7] DarkenOrLighten Filter\n";
         cout << "[8] Resize Filter\n";
-        cout << "[9] Save the image.\n";
-        cout << "[10] Undo the filter.\n";
-        cout << "[11] Exit\n";
-        performMainMenuChoice((mainMenuChoice)InputValidation::readIntNumberBetween(1, 11, "Please Enter a number between 1 and 11"));
+        cout << "[9] DetectEdge Filter\n";
+        cout << "[10] Save the image.\n";
+        cout << "[11] Undo the filter.\n";
+        cout << "[12] Exit\n";
+        performMainMenuChoice((mainMenuChoice)InputValidation::readIntNumberBetween(1, 12, "Please Enter a number between 1 and 12"));
     }
 
     static void beginProgram()
