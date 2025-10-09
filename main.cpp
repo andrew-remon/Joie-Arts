@@ -1,3 +1,43 @@
+// This file is Part 2 of Assignment 1 (CS213).
+// It implements several image filters and a menu system to test them.
+// Link to our team's google drive that has a video explaining the app and document containing
+// more details about our team and a diagram is here :
+// https://drive.google.com/drive/u/2/folders/1RGNOCiMWfK1G72d6raB_XjhekJpsMMff
+//
+// Remaining Details Below.
+//
+// Student 1 Name: Ahmed Yasser
+// ID: 20240061
+// Section: S7-8
+// Worked On:
+// - Filter: 1, 4, 7, 10
+// - Github
+// Working On:
+// - Grand Competition GUI
+//
+// Student 2 Name: Andrew Remon
+// ID: 20240094
+// Section: S7-8
+// Worked On:
+// - Filter: 2 , 5 , 8, 11
+// - Menus
+// - Class Setup
+// - Github
+// - Diagram
+// Working on :
+// - linking the menu with the gui
+//
+// Student 3 Name: Joy Magdy
+// ID: 20240149
+// Section: S7-8
+// Worked On:
+// Filter: 3 , 6 , 9 , 12 , 13 , 14 , 15
+// Menu
+// Working On:
+// - Filter: 16, 17, 18, bonus filters
+// - Testing Multiple Filter Optimization options
+//
+
 #include <iostream>
 #include <string>
 #include <stack>
@@ -15,10 +55,11 @@ enum mainMenuChoice
 {
     load = 1,
     AddFrame = 2, BlackAndWhite = 3, Blur = 4,
-    DarkenOrLighten = 5, DetectEdge = 6,  Flip = 7,
-    Grayscale = 8, Invert = 9, Merge = 10, Old_Tv = 11,
-    Resize = 12, Rotate = 13,
-    save = 14, undo = 15, redo = 16, end = 17
+    Crop = 5, DarkenOrLighten = 6, DetectEdge = 7,
+    Flip = 8, Grayscale = 9, Invert = 10, Merge = 11,
+    NaturalSunlight = 12 , OilPainting = 13,
+    Old_Tv = 14, Resize = 15, Rotate = 16,
+    save = 17, undo = 18, redo = 19, end = 20
 };
 
 class InputValidation
@@ -556,7 +597,7 @@ public:
         return merged;
     }
 
-    static Image oldTV(Image &image) {
+    static Image oldTVFilter(Image &image) {
         int width = image.width, height = image.height;
         for (int i = 0; i < 3; i++) {
             image = blurFilter(image);
@@ -567,6 +608,98 @@ public:
         image = vignette(image,0.7f);
         image = lighten(image);
         return image;
+    }
+
+    static Image oilPaintingFilter(Image &image) {
+        int radius = 3;
+        Image oiled_up(image.width, image.height);
+
+        for (int i = radius; i < image.width - radius; i++) {
+            for (int j = radius; j < image.height - radius; j++) {
+
+                int lvls = 256; // levels of brightnesses to reduce computations and to make it look more blocky or painted
+                int intensityCount [lvls] = {0};
+                int sumR[lvls] = {0} , sumG[lvls] = {0} , sumB[lvls] = {0} ;
+
+                for (int n_i = -radius ; n_i <= radius ; n_i++) {    // n = nearest
+                    for (int n_j = -radius ; n_j <= radius ; n_j++) {
+
+                        int r = image (i+n_i, j+n_j , 0);
+                        int g = image(i+n_i, j+n_j , 1);
+                        int b = image(i+n_i, j+n_j , 2);
+
+                        int intensity = ((r + g + b) * (lvls -1)) / 765;           // adds count for the most dominant color
+                        if (intensity >= lvls) intensity = lvls - 1; // to not exceed the lvl brightness
+                        intensityCount[intensity]++;
+
+                        sumR [intensity] += r;
+                        sumG [intensity] += g;              // add values of the colors
+                        sumB [intensity] += b;
+                    }
+                }
+
+                int maxCount = 0, maxIndex = 0;
+                for (int k = 0; k < lvls; k++) {
+                    if (intensityCount[k] > maxCount) {
+                        maxCount = intensityCount[k];           // find the most repeated intenesty
+                        maxIndex = k;
+                    }
+                }
+
+                if (maxCount > 0) {  // safety condition to not divide by 0
+                    oiled_up(i,j,0) = sumR[maxIndex] / maxCount;
+                    oiled_up(i,j,1) = sumG[maxIndex] / maxCount;    // divide value by count to find avr
+                    oiled_up(i,j,2) = sumB[maxIndex] / maxCount;
+                }
+                else {
+                    oiled_up(i,j,0) = image(i,j,0);
+                    oiled_up(i,j,1) = image(i,j,1);
+                    oiled_up(i,j,2) = image(i,j,2);
+                }
+            }
+        }
+        return oiled_up;
+    }
+
+    static Image naturalSunLightFilter(Image &image) {
+        image = lighten(image,1.1);
+        image = contrast(image ,10);
+
+        for (int i = 0; i < image.width; i++) {
+            for (int j = 0; j < image.height; j++) {
+                float val = image(i, j, 0)*1.15f;
+                if (val > 255) val = 255;
+                image(i, j, 0) = (int)val;
+
+                val = image(i, j, 1)*1.1f;
+                if (val > 255) val = 255;
+                image(i, j, 1) = (int)val;
+
+                val = image(i, j, 1)*0.8f;
+                image(i, j, 2) = (int)val;
+            }
+        }
+        return image;
+    }
+
+    static Image cropFilter(Image &image) {
+        int x = 0, y = 0;
+        int w = 0, h = 0;
+        cout << "Upper left corner of the part to keep pixel coordinates\n";
+        cout << "Enter x point: " ; cin >> x;
+        cout << "Enter y point: " ; cin >> y;
+        cout << "Enter Dimensions to cut \n";
+        cout << "Enter width: " ; cin >> w;
+        cout << "Enter height: " ; cin >> h;
+        Image cropped(w , h);
+        for (int i = 0 ; i < w ; i++) {
+            for (int j = 0 ; j < h ; j++) {
+                for (int k = 0 ; k < 3 ; k++) {
+                    cropped (i , j , k) = image(x+i,y+j,k);
+                }
+            }
+        }
+        return cropped;
     }
 };
 
@@ -763,7 +896,31 @@ private:
             }
             case mainMenuChoice:: Old_Tv :
             {
-                image = Filter::oldTV(image);
+                image = Filter::oldTVFilter(image);
+                stUndo.push(image);
+                applyFilter();
+                // displayMainMenu();
+                break;
+            }
+            case mainMenuChoice:: OilPainting:
+            {
+                image = Filter::oilPaintingFilter(image);
+                stUndo.push(image);
+                applyFilter();
+                // displayMainMenu();
+                break;
+            }
+            case mainMenuChoice:: NaturalSunlight :
+            {
+                image = Filter::naturalSunLightFilter(image);
+                stUndo.push(image);
+                applyFilter();
+                // displayMainMenu();
+                break;
+            }
+            case mainMenuChoice::Crop :
+            {
+                image = Filter::cropFilter(image);
                 stUndo.push(image);
                 applyFilter();
                 // displayMainMenu();
@@ -819,20 +976,23 @@ public:
         cout << "[2]  Add Frame Filter\n";
         cout << "[3]  BlackAndWhite Filter\n";
         cout << "[4]  Blur Filter\n";
-        cout << "[5]  DarkenOrLighten Filter\n";
-        cout << "[6]  DetectEdge Filter\n";
-        cout << "[7]  Flip Filter\n";
-        cout << "[8]  GrayScale Filter\n";
-        cout << "[9]  Invert Filter\n";
-        cout << "[10] Merge Filter\n";
-        cout << "[11] Old TV Filter\n";
-        cout << "[12] Resize Filter\n";
-        cout << "[13] Rotate Filter\n";
-        cout << "[14] Save the image.\n";
-        cout << "[15] Undo the Filter.\n";
-        cout << "[16] Redo the Filter.\n";
-        cout << "[17] Exit\n";
-        performMainMenuChoice((mainMenuChoice)InputValidation::readIntNumberBetween(1, 17, "Please Enter a number between 1 and 17"));
+        cout << "[5]  Crop Filter\n";
+        cout << "[6]  DarkenOrLighten Filter\n";
+        cout << "[7]  DetectEdge Filter\n";
+        cout << "[8]  Flip Filter\n";
+        cout << "[9]  GrayScale Filter\n";
+        cout << "[10] Invert Filter\n";
+        cout << "[11] Merge Filter\n";
+        cout << "[12] Natural Sunlight Filter\n";
+        cout << "[13] Oil Painting Filter\n";
+        cout << "[14] Old TV Filter\n";
+        cout << "[15] Resize Filter\n";
+        cout << "[16] Rotate Filter\n";
+        cout << "[17] Save the image.\n";
+        cout << "[18] Undo the Filter.\n";
+        cout << "[19] Redo the Filter.\n";
+        cout << "[20] Exit\n";
+        performMainMenuChoice((mainMenuChoice)InputValidation::readIntNumberBetween(1, 20, "Please Enter a number between 1 and 20"));
     }
 
     static void beginProgram()
