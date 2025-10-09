@@ -8,14 +8,16 @@ using namespace std;
 
 bool isExit = false;
 static Image image;
-stack <Image> st;
+stack <Image> stUndo;
+stack <Image> stRedo;
 
 enum mainMenuChoice
 {
     load = 1,
     Grayscale = 2, BlackAndWhite = 3, Invert = 4,
     Flip = 5, Rotate = 6, DarkenOrLighten = 7, Resize = 8,
-    DetectEdge = 9, save = 10, undo = 11, end = 12
+    DetectEdge = 9, AddFrame = 10 , save = 11, undo = 12,
+    redo = 13 , end = 14
 };
 
 class InputValidation
@@ -332,7 +334,9 @@ public:
         }
         return output;
     }
-    static Image detectBlackEdgeFilter(Image &image) {
+
+    static Image detectBlackEdgeFilter(Image &image)
+    {
         float kernel[3][3] = {
             {-1, -1, -1},
             {-1,  8, -1},                // outline kernel
@@ -363,6 +367,32 @@ public:
         }
         return detected;
     }
+
+    static Image addFrameFilter(Image &image , int thickness =5, unsigned char R = 255, unsigned char G =255, unsigned char B=255)
+    {
+        Image framed(image.width, image.height);
+
+        for (int i = 0; i < image.width; i++) {
+            for (int j = 0; j < image.height; j++) {
+                bool isFrame = (i < thickness) || (i >= image.width - thickness) ||
+                               (j < thickness) || (j >= image.height - thickness);
+
+                if (isFrame)
+                {
+                    framed(i, j, 0) = R;
+                    framed(i, j, 1) = G;
+                    framed(i, j, 2) = B;
+                }
+                else
+                 {
+                    framed(i, j, 0) = image(i, j, 0);
+                    framed(i, j, 1) = image(i, j, 1);
+                    framed(i, j, 2) = image(i, j, 2);
+                }
+            }
+        }
+        return framed;
+    }
 };
 
 class Main
@@ -391,7 +421,7 @@ private:
         } while (!isFound);
 
         cout << "Image Loaded Successfully.\n";
-        st.push(image);
+        stUndo.push(image);
 
         return image;
     }
@@ -426,12 +456,29 @@ private:
         getline(cin, ans);
         if (!ans.empty() && (ans[0] == 'Y' || ans[0] == 'y'))
         {
-            if (!st.empty() && st.size() >= 2)
+            if (!stUndo.empty() && stUndo.size() >= 2)
             {
-                st.pop();
-                image = st.top();
+                stUndo.pop();
+                image = stUndo.top();
             }
             else cout << "Sorry, There's No filter to Undo.\n";
+        }
+    }
+
+    static void redoFilter()
+    {
+        cout << "\nAre You Sure you want to redo to the last filter? (Y/N)\n";
+        string ans = "";
+        getline(cin, ans);
+        if (!ans.empty() && (ans[0] == 'Y' || ans[0] == 'y'))
+        {
+            if (!stRedo.empty() && stRedo.size() >= 1)
+            {
+                stUndo.push(stRedo.top());
+                image = stRedo.top();
+                stRedo.pop();
+            }
+            else cout << "Sorry, There's No filter to redo.\n";
         }
     }
 
@@ -454,7 +501,7 @@ private:
             case mainMenuChoice::Grayscale :
             {
                 image = Filter::grayscaleFilter(image);
-                st.push(image);
+                stUndo.push(image);
                 applyFilter();
                 // displayMainMenu();
                 break;
@@ -462,7 +509,7 @@ private:
             case mainMenuChoice::BlackAndWhite :
             {
                 image = Filter::blackAndWhiteFilter(image);
-                st.push(image);
+                stUndo.push(image);
                 applyFilter();
                 // displayMainMenu();
                 break;
@@ -470,7 +517,7 @@ private:
             case mainMenuChoice::Invert :
             {
                 image = Filter::invertFilter(image);
-                st.push(image);
+                stUndo.push(image);
                 applyFilter();
                 // displayMainMenu();
                 break;
@@ -478,7 +525,7 @@ private:
             case mainMenuChoice::Flip :
             {
                 image = Filter::flipFilter(image);
-                st.push(image);
+                stUndo.push(image);
                 applyFilter();
                 // displayMainMenu();
                 break;
@@ -486,7 +533,7 @@ private:
             case mainMenuChoice::Rotate :
             {
                 image = Filter::rotateFilter(image);
-                st.push(image);
+                stUndo.push(image);
                 applyFilter();
                 // displayMainMenu();
                 break;
@@ -494,7 +541,7 @@ private:
             case mainMenuChoice::Resize :
             {
                 image = Filter::resizeFilter(image);
-                st.push(image);
+                stUndo.push(image);
                 applyFilter();
                 // displayMainMenu();
                 break;
@@ -502,7 +549,7 @@ private:
             case mainMenuChoice::DarkenOrLighten :
             {
                 image = Filter::darkenOrLightenFilter(image);
-                st.push(image);
+                stUndo.push(image);
                 applyFilter();
                 // displayMainMenu();
                 break;
@@ -510,7 +557,15 @@ private:
             case mainMenuChoice::DetectEdge :
             {
                 image = Filter::detectBlackEdgeFilter(image);
-                st.push(image);
+                stUndo.push(image);
+                applyFilter();
+                // displayMainMenu();
+                break;
+            }
+            case mainMenuChoice::AddFrame :
+            {
+                image = Filter::addFrameFilter(image);
+                stUndo.push(image);
                 applyFilter();
                 // displayMainMenu();
                 break;
@@ -520,6 +575,11 @@ private:
                 undoFilter();
                 break;
                 // displayMainMenu();
+            }
+            case mainMenuChoice::redo :
+            {
+                redoFilter();
+                break;
             }
             case mainMenuChoice::end :
             {
@@ -565,10 +625,12 @@ public:
         cout << "[7] DarkenOrLighten Filter\n";
         cout << "[8] Resize Filter\n";
         cout << "[9] DetectEdge Filter\n";
-        cout << "[10] Save the image.\n";
-        cout << "[11] Undo the filter.\n";
-        cout << "[12] Exit\n";
-        performMainMenuChoice((mainMenuChoice)InputValidation::readIntNumberBetween(1, 12, "Please Enter a number between 1 and 12"));
+        cout << "[10] Add Frame Filter\n";
+        cout << "[11] Save the image.\n";
+        cout << "[12] Undo the filter.\n";
+        cout << "[13] Redo the filter.\n";
+        cout << "[14] Exit\n";
+        performMainMenuChoice((mainMenuChoice)InputValidation::readIntNumberBetween(1, 14, "Please Enter a number between 1 and 14"));
     }
 
     static void beginProgram()
