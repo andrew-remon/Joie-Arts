@@ -14,10 +14,10 @@ stack <Image> stRedo;
 enum mainMenuChoice
 {
     load = 1,
-    Grayscale = 2, BlackAndWhite = 3, Invert = 4,
-    Flip = 5, Rotate = 6, DarkenOrLighten = 7, Resize = 8,
-    DetectEdge = 9, AddFrame = 10 , save = 11, undo = 12,
-    redo = 13 , end = 14
+    AddFrame = 2, BlackAndWhite = 3, Blur = 4,
+    DarkenOrLighten = 5, DetectEdge = 6,  Flip = 7,
+    Grayscale = 8, Invert = 9, Resize = 10, Rotate = 11,
+    save = 12, undo = 13, redo = 14 , end = 15
 };
 
 class InputValidation
@@ -393,6 +393,33 @@ public:
         }
         return framed;
     }
+
+    static Image blurFilter(Image &image) {
+
+        float kernel[3][3] = {
+            {0.111, 0.111, 0.111},
+            {0.111, 0.111, 0.111},
+            {0.111, 0.111, 0.111}    };
+
+        Image blurred(image.width-2, image.height-2);
+        for (int i = 1; i < image.width-1; i++) {
+            for (int j = 1; j < image.height-1; j++) {
+                for (int k = 0; k < 3; k++) {
+                    blurred(i-1, j-1, k) =
+                        image (i-1 ,j-1 , k) * kernel[0][0]
+                    +   image (i   ,j-1 , k) * kernel[1][0]
+                    +   image (i+1 ,j-1 , k) * kernel[2][0]
+                    +   image (i-1 ,j   , k) * kernel[0][1]
+                    +   image (i   ,j   , k) * kernel[1][1]
+                    +   image (i+1 ,j   , k) * kernel[2][1]
+                    +   image (i-1 ,j+1 , k) * kernel[0][2]
+                    +   image (i   ,j+1 , k) * kernel[1][2]
+                    +   image (i+1 ,j+1 , k) * kernel[2][2];
+                }
+            }
+        }
+        return blurred;
+    }
 };
 
 class Main
@@ -570,6 +597,14 @@ private:
                 // displayMainMenu();
                 break;
             }
+            case mainMenuChoice::Blur :
+            {
+                image = Filter::blurFilter(image);
+                stUndo.push(image);
+                applyFilter();
+                // displayMainMenu();
+                break;
+            }
             case mainMenuChoice::undo :
             {
                 undoFilter();
@@ -616,21 +651,22 @@ public:
     {
         cout << "\nWhat is in your Mind?\n";
         cout << "Choose The number corresponding to your choice: \n";
-        cout << "[1] Load a new Image.\n";
-        cout << "[2] GrayScale Filter\n";
-        cout << "[3] BlackAndWhite Filter\n";
-        cout << "[4] Invert Filter\n";
-        cout << "[5] Flip Filter\n";
-        cout << "[6] Rotate Filter\n";
-        cout << "[7] DarkenOrLighten Filter\n";
-        cout << "[8] Resize Filter\n";
-        cout << "[9] DetectEdge Filter\n";
-        cout << "[10] Add Frame Filter\n";
-        cout << "[11] Save the image.\n";
-        cout << "[12] Undo the filter.\n";
-        cout << "[13] Redo the filter.\n";
-        cout << "[14] Exit\n";
-        performMainMenuChoice((mainMenuChoice)InputValidation::readIntNumberBetween(1, 14, "Please Enter a number between 1 and 14"));
+        cout << "[1]  Load a new Image.\n";
+        cout << "[2]  Add Frame Filter\n";
+        cout << "[3]  BlackAndWhite Filter\n";
+        cout << "[4]  Blur Filter\n";
+        cout << "[5]  DarkenOrLighten Filter\n";
+        cout << "[6]  DetectEdge Filter\n";
+        cout << "[7]  Flip Filter\n";
+        cout << "[8]  GrayScale Filter\n";
+        cout << "[9]  Invert Filter\n";
+        cout << "[10] Resize Filter\n";
+        cout << "[11] Rotate Filter\n";
+        cout << "[12] Save the image.\n";
+        cout << "[13] Undo the Filter.\n";
+        cout << "[14] Redo the Filter.\n";
+        cout << "[15] Exit\n";
+        performMainMenuChoice((mainMenuChoice)InputValidation::readIntNumberBetween(1, 15, "Please Enter a number between 1 and 15"));
     }
 
     static void beginProgram()
