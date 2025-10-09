@@ -16,8 +16,9 @@ enum mainMenuChoice
     load = 1,
     AddFrame = 2, BlackAndWhite = 3, Blur = 4,
     DarkenOrLighten = 5, DetectEdge = 6,  Flip = 7,
-    Grayscale = 8, Invert = 9, Resize = 10, Rotate = 11,
-    save = 12, undo = 13, redo = 14 , end = 15
+    Grayscale = 8, Invert = 9, Merge = 10, Old_Tv = 11,
+    Resize = 12, Rotate = 13,
+    save = 14, undo = 15, redo = 16, end = 17
 };
 
 class InputValidation
@@ -90,6 +91,114 @@ private:
         arr[2] = cubicInterpolate(p[2], y);
         arr[3] = cubicInterpolate(p[3], y);
         return cubicInterpolate(arr, x);
+    }
+
+    static Image nearestNeighborResize(Image &image, int newWidth, int newHeight) {
+        Image resized(newWidth, newHeight);
+
+        float i_ratio = (float)image.width / newWidth;
+        float j_ratio = (float)image.height / newHeight;
+
+        for (int i = 0; i < newWidth; i++) {
+            for (int j = 0; j < newHeight; j++) {
+                int n_i = (int)(i * i_ratio + 0.5f); // n = nearest
+                int n_j = (int)(j * j_ratio + 0.5f);
+
+                n_i = min(image.width  - 1, max(0, n_i));
+                n_j = min(image.height - 1, max(0, n_j));
+
+                for (int k = 0; k < 3; k++) {
+                    resized(i, j, k) = image(n_i, n_j, k);
+                }
+            }
+        }
+        return resized;
+    }
+
+    static Image lighten(Image &image , float strength = 1.5f) {
+        for (int i = 0 ; i < image.width ; i++) {
+            for (int j = 0 ; j < image.height ; j++) {
+                for (int k = 0 ; k < image.channels ; k++) {
+                    if (image(i, j, k) * strength  > 255) { image(i, j, k) = 255;}
+                    else{ image(i, j, k) = image(i, j, k) * strength;}
+                }
+            }
+        }
+        return image;
+    }
+
+    static Image darken(Image &image , float strength = 0.5f) {
+        for (int i = 0 ; i < image.width ; i++) {
+            for (int j = 0 ; j < image.height ; j++) {
+                for (int k = 0 ; k < image.channels ; k++) {
+                    if (image(i, j, k) * strength  > 255) { image(i, j, k) = 255;}
+                    else{ image(i, j, k) = image(i, j, k) * strength;}
+                }
+            }
+        }
+        return image;
+    }
+
+    static Image vignette(Image &image , float strength = 0.8f) {
+        float center_x = image.width/ 2.0f  , center_y = image.height/ 2.0f;
+        float max_distance = sqrt(center_x * center_x + center_y * center_y);
+
+        for (int i = 0; i < image.width; i++) {
+            for(int j = 0; j < image.height; j++) {
+                float distance = sqrt((i - center_x) * (i - center_x) + (j - center_y) * (j - center_y));
+                float factor = 1 - strength * (distance/max_distance);
+
+                if (factor < 0) factor = 0;
+                for (int k = 0; k < 3; k++) {
+                    image (i , j , k) = image(i,j,k) * factor;
+                }
+            }
+        }
+        return image;
+    }
+
+    static Image noise(Image &image, int amount = 20) {
+
+        for (int i = 0; i < image.width; i++) {
+            for (int j = 0; j < image.height; j++) {
+                for (int k = 0; k < 3; k++) {
+                    int noise = (rand() % (2 * amount + 1)) - amount;
+                    int val = image(i, j, k) + noise;
+
+                    if (val < 0) val = 0;
+                    if (val > 255) val = 255;
+                    image(i, j, k) = val;
+                }
+            }
+        }
+        return image;
+    }
+
+    static Image contrast(Image &image , float strength = 40.0f) {
+        float factor = 1.0f + (strength/100.0f);
+        Image contrasted(image.width, image.height);
+        for (int i = 0; i < image.width; i++) {
+            for (int j = 0; j < image.height; j++) {
+                for (int k = 0; k < 3; k++) {
+                    float val = ((image(i, j, k) -128)* factor ) + 128;
+                    val = max(0.0f,min(255.0f,val));
+                    contrasted(i, j, k) = val;
+                }
+            }
+        }
+        return contrasted;
+    }
+
+    static Image scanLines(Image &image , float freq = 3.14f) {
+        for (int i = 0; i < image.width; i++) {
+            for (int j = 0; j < image.height; j++) {
+                float factor = 0.7f + 0.3f * sin ((float)j * freq * 3.14159f / image.height);
+                for (int k = 0; k < 3; k++) {
+                    image(i, j, k) = image(i, j, k) * factor;
+                }
+            }
+        }
+        return image;
     }
 
 public:
@@ -420,6 +529,45 @@ public:
         }
         return blurred;
     }
+
+    static Image mergeFilter(Image &image) {
+        cout << "Enter 2nd Image Path" << endl;
+        string path;
+        cin >> path;
+        Image second_image(path);
+        int largest_width = max(image.width, second_image.width);
+        int largest_height = max(image.height, second_image.height);
+
+        second_image = nearestNeighborResize(second_image, largest_width, largest_height);
+        image = nearestNeighborResize(image, largest_width, largest_height);
+
+        Image merged(largest_width, largest_height);
+        float alpha = 0.5;
+        float beta = 1 - alpha;
+        float constant = 0;
+        for (int i = 0; i < largest_width; i++) {
+            for (int j = 0; j < largest_height; j++) {
+                for (int k = 0; k < 3; k++) {
+                    merged(i, j, k) = alpha*image(i, j, k)
+                                + beta*second_image(i, j, k) + constant;
+                }
+            }
+        }
+        return merged;
+    }
+
+    static Image oldTV(Image &image) {
+        int width = image.width, height = image.height;
+        for (int i = 0; i < 3; i++) {
+            image = blurFilter(image);
+        }
+        image = nearestNeighborResize(image, width, height);
+        image = scanLines(image , 30);
+        image = noise(image ,35);
+        image = vignette(image,0.7f);
+        image = lighten(image);
+        return image;
+    }
 };
 
 class Main
@@ -605,6 +753,22 @@ private:
                 // displayMainMenu();
                 break;
             }
+            case mainMenuChoice::Merge :
+            {
+                image = Filter::mergeFilter(image);
+                stUndo.push(image);
+                applyFilter();
+                // displayMainMenu();
+                break;
+            }
+            case mainMenuChoice:: Old_Tv :
+            {
+                image = Filter::oldTV(image);
+                stUndo.push(image);
+                applyFilter();
+                // displayMainMenu();
+                break;
+            }
             case mainMenuChoice::undo :
             {
                 undoFilter();
@@ -660,13 +824,15 @@ public:
         cout << "[7]  Flip Filter\n";
         cout << "[8]  GrayScale Filter\n";
         cout << "[9]  Invert Filter\n";
-        cout << "[10] Resize Filter\n";
-        cout << "[11] Rotate Filter\n";
-        cout << "[12] Save the image.\n";
-        cout << "[13] Undo the Filter.\n";
-        cout << "[14] Redo the Filter.\n";
-        cout << "[15] Exit\n";
-        performMainMenuChoice((mainMenuChoice)InputValidation::readIntNumberBetween(1, 15, "Please Enter a number between 1 and 15"));
+        cout << "[10] Merge Filter\n";
+        cout << "[11] Old TV Filter\n";
+        cout << "[12] Resize Filter\n";
+        cout << "[13] Rotate Filter\n";
+        cout << "[14] Save the image.\n";
+        cout << "[15] Undo the Filter.\n";
+        cout << "[16] Redo the Filter.\n";
+        cout << "[17] Exit\n";
+        performMainMenuChoice((mainMenuChoice)InputValidation::readIntNumberBetween(1, 17, "Please Enter a number between 1 and 17"));
     }
 
     static void beginProgram()
