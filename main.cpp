@@ -109,12 +109,35 @@ public:
             else cout << errorMessage << endl;
         }
     }
+
+    static Image getImagePath()
+    {
+        bool isFound = false;
+        do
+        {
+            string filename;
+            try
+            {
+                cout << "Please enter an image: ";
+                getline(cin, filename);
+
+                image = Image(filename);
+                isFound = true;
+            }
+            catch(const std::exception& e)
+            {
+                std::cerr << e.what() << '\n';
+                cout << "\nImage Not Found, Please Try Again.\n";
+            }
+        } while (!isFound);
+
+        return image;
+    }
 };
 
 class Filter
 {
 private:
-
     static double cubicInterpolate(double p[4], double x)
     {
         return p[1] + 0.5 * x *
@@ -259,6 +282,7 @@ public:
                     image(i, j, k) = avg;
             }
         }
+
         return image;
     }
 
@@ -286,6 +310,7 @@ public:
                 }
             }
         }
+
         return image;
     }
 
@@ -299,6 +324,7 @@ public:
                     image(i,j,k) = 255 - image(i,j,k);
             }
         }
+
         return image;
     }
 
@@ -393,6 +419,7 @@ public:
             cout << "Error , Enter a Valid Number\n";
             rotateFilter(image);
         }
+
         return rotatedImage;
     }
 
@@ -482,12 +509,14 @@ public:
                 }
             }
         }
+
         return output;
     }
 
     static Image detectBlackEdgeFilter(Image &image)
     {
-        float kernel[3][3] = {
+        float kernel[3][3] =
+        {
             {-1, -1, -1},
             {-1,  8, -1},                // outline kernel
             {-1, -1, -1}
@@ -496,9 +525,12 @@ public:
         image = grayscaleFilter(image);
         Image detected(image.width-2, image.height-2);
 
-        for (int i = 1; i < image.width-1; i++) {
-            for (int j = 1; j < image.height-1; j++) {
-                for (int k = 0; k < 3; k++) {
+        for (int i = 1; i < image.width-1; i++)
+        {
+            for (int j = 1; j < image.height-1; j++)
+            {
+                for (int k = 0; k < 3; k++)
+                {
                     float val =
                         image (i-1 ,j-1 , k) * kernel[0][0]
                     +   image (i   ,j-1 , k) * kernel[1][0]
@@ -515,6 +547,7 @@ public:
                 }
             }
         }
+
         return detected;
     }
 
@@ -522,10 +555,11 @@ public:
     {
         Image framed(image.width, image.height);
 
-        for (int i = 0; i < image.width; i++) {
-            for (int j = 0; j < image.height; j++) {
-                bool isFrame = (i < thickness) || (i >= image.width - thickness) ||
-                               (j < thickness) || (j >= image.height - thickness);
+        for (int i = 0; i < image.width; i++)
+        {
+            for (int j = 0; j < image.height; j++)
+            {
+                bool isFrame = (i < thickness) || (i >= image.width - thickness) || (j < thickness) || (j >= image.height - thickness);
 
                 if (isFrame)
                 {
@@ -534,27 +568,34 @@ public:
                     framed(i, j, 2) = B;
                 }
                 else
-                 {
+                {
                     framed(i, j, 0) = image(i, j, 0);
                     framed(i, j, 1) = image(i, j, 1);
                     framed(i, j, 2) = image(i, j, 2);
                 }
             }
         }
+
         return framed;
     }
 
-    static Image blurFilter(Image &image) {
-
-        float kernel[3][3] = {
+    static Image blurFilter(Image &image)
+    {
+        float kernel[3][3] =
+        {
             {0.111, 0.111, 0.111},
             {0.111, 0.111, 0.111},
-            {0.111, 0.111, 0.111}    };
+            {0.111, 0.111, 0.111}
+        };
 
         Image blurred(image.width-2, image.height-2);
-        for (int i = 1; i < image.width-1; i++) {
-            for (int j = 1; j < image.height-1; j++) {
-                for (int k = 0; k < 3; k++) {
+
+        for (int i = 1; i < image.width-1; i++)
+        {
+            for (int j = 1; j < image.height-1; j++)
+            {
+                for (int k = 0; k < 3; k++)
+                {
                     blurred(i-1, j-1, k) =
                         image (i-1 ,j-1 , k) * kernel[0][0]
                     +   image (i   ,j-1 , k) * kernel[1][0]
@@ -568,14 +609,16 @@ public:
                 }
             }
         }
+
         return blurred;
     }
 
-    static Image mergeFilter(Image &image) {
-        cout << "Enter 2nd Image Path" << endl;
-        string path;
-        cin >> path;
-        Image second_image(path);
+    static Image mergeFilter(Image &image)
+    {
+        cout << "Enter 2nd Image Path\n";
+
+        Image second_image = InputValidation::getImagePath();
+
         int largest_width = max(image.width, second_image.width);
         int largest_height = max(image.height, second_image.height);
 
@@ -583,90 +626,112 @@ public:
         image = nearestNeighborResize(image, largest_width, largest_height);
 
         Image merged(largest_width, largest_height);
+
         float alpha = 0.5;
         float beta = 1 - alpha;
         float constant = 0;
-        for (int i = 0; i < largest_width; i++) {
-            for (int j = 0; j < largest_height; j++) {
-                for (int k = 0; k < 3; k++) {
+
+        for (int i = 0; i < largest_width; i++)
+        {
+            for (int j = 0; j < largest_height; j++)
+            {
+                for (int k = 0; k < 3; k++)
+                {
                     merged(i, j, k) = alpha*image(i, j, k)
-                                + beta*second_image(i, j, k) + constant;
+                    + beta*second_image(i, j, k) + constant;
                 }
             }
         }
+
         return merged;
     }
 
-    static Image oldTVFilter(Image &image) {
+    static Image oldTVFilter(Image &image)
+    {
         int width = image.width, height = image.height;
-        for (int i = 0; i < 3; i++) {
+
+        for (int i = 0; i < 3; i++)
             image = blurFilter(image);
-        }
+
         image = nearestNeighborResize(image, width, height);
         image = scanLines(image , 30);
         image = noise(image ,35);
         image = vignette(image,0.7f);
         image = lighten(image);
+
         return image;
     }
 
-    static Image oilPaintingFilter(Image &image) {
+    static Image oilPaintingFilter(Image &image)
+    {
         int radius = 3;
+
         Image oiled_up(image.width, image.height);
 
-        for (int i = radius; i < image.width - radius; i++) {
-            for (int j = radius; j < image.height - radius; j++) {
-
+        for (int i = radius; i < image.width - radius; i++)
+        {
+            for (int j = radius; j < image.height - radius; j++)
+            {
                 int lvls = 256; // levels of brightnesses to reduce computations and to make it look more blocky or painted
                 int intensityCount [lvls] = {0};
                 int sumR[lvls] = {0} , sumG[lvls] = {0} , sumB[lvls] = {0} ;
 
-                for (int n_i = -radius ; n_i <= radius ; n_i++) {    // n = nearest
-                    for (int n_j = -radius ; n_j <= radius ; n_j++) {
-
+                for (int n_i = -radius ; n_i <= radius ; n_i++) // n = nearest
+                {
+                    for (int n_j = -radius ; n_j <= radius ; n_j++)
+                    {
                         int r = image (i+n_i, j+n_j , 0);
                         int g = image(i+n_i, j+n_j , 1);
                         int b = image(i+n_i, j+n_j , 2);
 
-                        int intensity = ((r + g + b) * (lvls -1)) / 765;           // adds count for the most dominant color
-                        if (intensity >= lvls) intensity = lvls - 1; // to not exceed the lvl brightness
+                        int intensity = ((r + g + b) * (lvls -1)) / 765;   // adds count for the most dominant color
+                        if (intensity >= lvls) intensity = lvls - 1;       // to not exceed the lvl brightness
                         intensityCount[intensity]++;
 
                         sumR [intensity] += r;
-                        sumG [intensity] += g;              // add values of the colors
+                        sumG [intensity] += g;   // add values of the colors
                         sumB [intensity] += b;
                     }
                 }
 
                 int maxCount = 0, maxIndex = 0;
-                for (int k = 0; k < lvls; k++) {
-                    if (intensityCount[k] > maxCount) {
-                        maxCount = intensityCount[k];           // find the most repeated intenesty
+
+                for (int k = 0; k < lvls; k++)
+                {
+                    if (intensityCount[k] > maxCount)
+                    {
+                        maxCount = intensityCount[k];           // find the most repeated intensity
                         maxIndex = k;
                     }
                 }
 
-                if (maxCount > 0) {  // safety condition to not divide by 0
+                if (maxCount > 0) // safety condition to not divide by 0
+                {
                     oiled_up(i,j,0) = sumR[maxIndex] / maxCount;
                     oiled_up(i,j,1) = sumG[maxIndex] / maxCount;    // divide value by count to find avr
                     oiled_up(i,j,2) = sumB[maxIndex] / maxCount;
                 }
-                else {
+                else
+                {
                     oiled_up(i,j,0) = image(i,j,0);
                     oiled_up(i,j,1) = image(i,j,1);
                     oiled_up(i,j,2) = image(i,j,2);
                 }
             }
         }
+
         return oiled_up;
     }
 
-    static Image naturalSunLightFilter(Image &image) {
+    static Image naturalSunLightFilter(Image &image)
+    {
         image = lighten(image,1.1);
         image = contrast(image ,10);
 
-        for (int i = 0; i < image.width; i++) {
-            for (int j = 0; j < image.height; j++) {
+        for (int i = 0; i < image.width; i++)
+        {
+            for (int j = 0; j < image.height; j++)
+            {
                 float val = image(i, j, 0)*1.15f;
                 if (val > 255) val = 255;
                 image(i, j, 0) = (int)val;
@@ -679,26 +744,33 @@ public:
                 image(i, j, 2) = (int)val;
             }
         }
+
         return image;
     }
 
-    static Image cropFilter(Image &image) {
+    static Image cropFilter(Image &image)
+    {
         int x = 0, y = 0;
         int w = 0, h = 0;
+
         cout << "Upper left corner of the part to keep pixel coordinates\n";
-        cout << "Enter x point: " ; cin >> x;
-        cout << "Enter y point: " ; cin >> y;
+        cout << "Enter x point: \n" ; x = InputValidation::readIntNumber();
+        cout << "Enter y point: \n" ; y = InputValidation::readIntNumber();
         cout << "Enter Dimensions to cut \n";
-        cout << "Enter width: " ; cin >> w;
-        cout << "Enter height: " ; cin >> h;
+        cout << "Enter width: \n" ; w = InputValidation::readIntNumber();
+        cout << "Enter height: \n" ; h = InputValidation::readIntNumber();
+
         Image cropped(w , h);
-        for (int i = 0 ; i < w ; i++) {
-            for (int j = 0 ; j < h ; j++) {
-                for (int k = 0 ; k < 3 ; k++) {
+
+        for (int i = 0 ; i < w ; i++)
+        {
+            for (int j = 0 ; j < h ; j++)
+            {
+                for (int k = 0 ; k < 3 ; k++)
                     cropped (i , j , k) = image(x+i,y+j,k);
-                }
             }
         }
+
         return cropped;
     }
 };
@@ -706,28 +778,9 @@ public:
 class Main
 {
 private:
-
     static Image loadImage()
     {
-        bool isFound = false;
-        do
-        {
-            string filename;
-            try
-            {
-                cout << "Please enter an image: ";
-                getline(cin, filename);
-
-                image = Image(filename);
-                isFound = true;
-            }
-            catch(const std::exception& e)
-            {
-                std::cerr << e.what() << '\n';
-                cout << "\nImage Not Found, Please Try Again.\n";
-            }
-        } while (!isFound);
-
+        image = InputValidation::getImagePath();
         cout << "Image Loaded Successfully.\n";
         stUndo.push(image);
 
@@ -894,7 +947,7 @@ private:
                 // displayMainMenu();
                 break;
             }
-            case mainMenuChoice:: Old_Tv :
+            case mainMenuChoice::Old_Tv :
             {
                 image = Filter::oldTVFilter(image);
                 stUndo.push(image);
@@ -902,7 +955,7 @@ private:
                 // displayMainMenu();
                 break;
             }
-            case mainMenuChoice:: OilPainting:
+            case mainMenuChoice::OilPainting:
             {
                 image = Filter::oilPaintingFilter(image);
                 stUndo.push(image);
@@ -910,7 +963,7 @@ private:
                 // displayMainMenu();
                 break;
             }
-            case mainMenuChoice:: NaturalSunlight :
+            case mainMenuChoice::NaturalSunlight :
             {
                 image = Filter::naturalSunLightFilter(image);
                 stUndo.push(image);
@@ -998,10 +1051,8 @@ public:
     static void beginProgram()
     {
         image = loadImage();
-        // displayMainMenu();
     }
 };
-
 
 int main()
 {
