@@ -22,7 +22,7 @@
 // Section: S7-8
 // Worked On:
 // - Filter: 2 , 5 , 8, 11
-// - Menus
+// - Menu
 // - Class Setup
 // - Github
 // - Diagram
@@ -55,13 +55,13 @@ stack <Image> stRedo;
 
 enum mainMenuChoice
 {
-    load = 1,
+    Load = 1,
     AddFrame = 2, BlackAndWhite = 3, Blur = 4,
     Crop = 5, DarkenOrLighten = 6, DetectEdge = 7,
     Flip = 8, Grayscale = 9, Invert = 10, Merge = 11,
     NaturalSunlight = 12 , OilPainting = 13,
-    Old_Tv = 14, Resize = 15, Rotate = 16,
-    save = 17, undo = 18, redo = 19, end = 20
+    OldTv = 14, Resize = 15, Rotate = 16,
+    Save = 17, Undo = 18, Redo = 19, End = 20
 };
 
 class InputValidation
@@ -159,75 +159,99 @@ private:
         return cubicInterpolate(arr, x);
     }
 
-    static Image nearestNeighborResize(Image &image, int newWidth, int newHeight) {
+    static Image nearestNeighborResize(Image &image, int newWidth, int newHeight)
+    {
         Image resized(newWidth, newHeight);
 
-        float i_ratio = (float)image.width / newWidth;
-        float j_ratio = (float)image.height / newHeight;
+        float iRatio = (float)image.width / newWidth;
+        float jRatio = (float)image.height / newHeight;
 
-        for (int i = 0; i < newWidth; i++) {
-            for (int j = 0; j < newHeight; j++) {
-                int n_i = (int)(i * i_ratio + 0.5f); // n = nearest
-                int n_j = (int)(j * j_ratio + 0.5f);
+        for (int i = 0; i < newWidth; i++)
+        {
+            for (int j = 0; j < newHeight; j++)
+            {
+                int n_i = (int)(i * iRatio + 0.5f); // n = nearest
+                int n_j = (int)(j * jRatio + 0.5f);
 
                 n_i = min(image.width  - 1, max(0, n_i));
                 n_j = min(image.height - 1, max(0, n_j));
 
-                for (int k = 0; k < 3; k++) {
+                for (int k = 0; k < 3; k++)
                     resized(i, j, k) = image(n_i, n_j, k);
-                }
             }
         }
+
         return resized;
     }
 
-    static Image lighten(Image &image , float strength = 1.5f) {
-        for (int i = 0 ; i < image.width ; i++) {
-            for (int j = 0 ; j < image.height ; j++) {
-                for (int k = 0 ; k < image.channels ; k++) {
-                    if (image(i, j, k) * strength  > 255) { image(i, j, k) = 255;}
-                    else{ image(i, j, k) = image(i, j, k) * strength;}
+    static Image lighten(Image &image , float strength = 1.5f)
+    {
+        for (int i = 0 ; i < image.width ; i++)
+        {
+            for (int j = 0 ; j < image.height ; j++)
+            {
+                for (int k = 0 ; k < image.channels ; k++)
+                {
+                    if (image(i, j, k) * strength  > 255)
+                        image(i, j, k) = 255;
+                    else
+                        image(i, j, k) = image(i, j, k) * strength;
                 }
             }
         }
+
         return image;
     }
 
-    static Image darken(Image &image , float strength = 0.5f) {
-        for (int i = 0 ; i < image.width ; i++) {
-            for (int j = 0 ; j < image.height ; j++) {
-                for (int k = 0 ; k < image.channels ; k++) {
-                    if (image(i, j, k) * strength  > 255) { image(i, j, k) = 255;}
-                    else{ image(i, j, k) = image(i, j, k) * strength;}
+    static Image darken(Image &image , float strength = 0.5f)
+    {
+        for (int i = 0 ; i < image.width ; i++)
+        {
+            for (int j = 0 ; j < image.height ; j++)
+            {
+                for (int k = 0 ; k < image.channels ; k++)
+                {
+                    if (image(i, j, k) * strength  > 255)
+                        image(i, j, k) = 255;
+                    else
+                        image(i, j, k) = image(i, j, k) * strength;
                 }
             }
         }
+
         return image;
     }
 
-    static Image vignette(Image &image , float strength = 0.8f) {
-        float center_x = image.width/ 2.0f  , center_y = image.height/ 2.0f;
-        float max_distance = sqrt(center_x * center_x + center_y * center_y);
+    static Image vignette(Image &image , float strength = 0.8f)
+    {
+        float centerX = image.width/ 2.0f  , centerY = image.height/ 2.0f;
+        float maxDistance = sqrt(centerX * centerX + centerY * centerY);
 
-        for (int i = 0; i < image.width; i++) {
-            for(int j = 0; j < image.height; j++) {
-                float distance = sqrt((i - center_x) * (i - center_x) + (j - center_y) * (j - center_y));
-                float factor = 1 - strength * (distance/max_distance);
+        for (int i = 0; i < image.width; i++)
+        {
+            for(int j = 0; j < image.height; j++)
+            {
+                float distance = sqrt((i - centerX) * (i - centerX) + (j - centerY) * (j - centerY));
+                float factor = 1 - strength * (distance/maxDistance);
 
                 if (factor < 0) factor = 0;
-                for (int k = 0; k < 3; k++) {
-                    image (i , j , k) = image(i,j,k) * factor;
-                }
+
+                for (int k = 0; k < 3; k++)
+                    image(i , j , k) = image(i,j,k) * factor;
             }
         }
+
         return image;
     }
 
-    static Image noise(Image &image, int amount = 20) {
-
-        for (int i = 0; i < image.width; i++) {
-            for (int j = 0; j < image.height; j++) {
-                for (int k = 0; k < 3; k++) {
+    static Image noise(Image &image, int amount = 20)
+    {
+        for (int i = 0; i < image.width; i++)
+        {
+            for (int j = 0; j < image.height; j++)
+            {
+                for (int k = 0; k < 3; k++)
+                {
                     int noise = (rand() % (2 * amount + 1)) - amount;
                     int val = image(i, j, k) + noise;
 
@@ -237,33 +261,44 @@ private:
                 }
             }
         }
+
         return image;
     }
 
-    static Image contrast(Image &image , float strength = 40.0f) {
+    static Image contrast(Image &image , float strength = 40.0f)
+    {
         float factor = 1.0f + (strength/100.0f);
         Image contrasted(image.width, image.height);
-        for (int i = 0; i < image.width; i++) {
-            for (int j = 0; j < image.height; j++) {
-                for (int k = 0; k < 3; k++) {
+
+        for (int i = 0; i < image.width; i++)
+        {
+            for (int j = 0; j < image.height; j++)
+            {
+                for (int k = 0; k < 3; k++)
+                {
                     float val = ((image(i, j, k) -128)* factor ) + 128;
                     val = max(0.0f,min(255.0f,val));
                     contrasted(i, j, k) = val;
                 }
             }
         }
+
         return contrasted;
     }
 
-    static Image scanLines(Image &image , float freq = 3.14f) {
-        for (int i = 0; i < image.width; i++) {
-            for (int j = 0; j < image.height; j++) {
+    static Image scanLines(Image &image , float freq = 3.14f)
+    {
+        for (int i = 0; i < image.width; i++)
+        {
+            for (int j = 0; j < image.height; j++)
+            {
                 float factor = 0.7f + 0.3f * sin ((float)j * freq * 3.14159f / image.height);
-                for (int k = 0; k < 3; k++) {
+
+                for (int k = 0; k < 3; k++)
                     image(i, j, k) = image(i, j, k) * factor;
-                }
             }
         }
+
         return image;
     }
 
@@ -427,39 +462,18 @@ public:
 
     static Image darkenOrLightenFilter(Image &image)
     {
-        cout << "Do you want to Darken or Lighten it?" << endl;
-        cout << "Enter 1 to Darken and 2 to Lighten" << endl;
+        cout << "Do you want to Darken or Lighten it?\n";
+        cout << "Enter 1 to Darken and 2 to Lighten\n";
 
         int x = InputValidation::readIntNumber();
 
         if (x == 1)
-        {
-            for (int i = 0 ; i < image.width ; i++)
-            {
-                for (int j = 0 ; j < image.height ; j++)
-                {
-                    for (int k = 0 ; k < image.channels ; k++)
-                        image(i, j, k) = image(i, j, k) * 0.5;
-                }
-            }
-        }
+            image = darken(image);
         else if (x == 2)
-        {
-            for (int i = 0 ; i < image.width ; i++)
-            {
-                for (int j = 0 ; j < image.height ; j++)
-                {
-                    for (int k = 0 ; k < image.channels ; k++)
-                    {
-                        if (image(i, j, k) * 1.5 > 255) image(i, j, k) = 255;
-                        else image(i, j, k) = image(i, j, k) *1.5;
-                    }
-                }
-            }
-        }
+            image = lighten(image);
         else
         {
-            cout << "Error , invalid input" << endl;
+            cout << "Error , invalid input\n";
             darkenOrLightenFilter(image);
         }
 
@@ -484,14 +498,14 @@ public:
         {
             for (int i = 0; i < newWidth; i++)
             {
-                double x_in = i * scaleX;
-                double y_in = j * scaleY;
+                double xIn = i * scaleX;
+                double yIn = j * scaleY;
 
-                int x_base = (int)floor(x_in) - 1;
-                int y_base = (int)floor(y_in) - 1;
+                int xBase = (int)floor(xIn) - 1;
+                int yBase = (int)floor(yIn) - 1;
 
-                double dx = x_in - floor(x_in);
-                double dy = y_in - floor(y_in);
+                double dx = xIn - floor(xIn);
+                double dy = yIn - floor(yIn);
 
                 for (int k = 0; k < image.channels; k++) // R,G,B loop
                 {
@@ -500,8 +514,8 @@ public:
                     {
                         for (int n = 0; n < 4; n++)
                         {
-                            int xx = std::clamp(x_base + n, 0, image.width - 1);
-                            int yy = std::clamp(y_base + m, 0, image.height - 1);
+                            int xx = std::clamp(xBase + n, 0, image.width - 1);
+                            int yy = std::clamp(yBase + m, 0, image.height - 1);
                             p[m][n] = image(xx, yy, k);
                         }
                     }
@@ -619,28 +633,28 @@ public:
     {
         cout << "Enter 2nd Image Path\n";
 
-        Image second_image = InputValidation::getImagePath();
+        Image secondImage = InputValidation::getImagePath();
 
-        int largest_width = max(image.width, second_image.width);
-        int largest_height = max(image.height, second_image.height);
+        int largestWidth = max(image.width, secondImage.width);
+        int largestHeight = max(image.height, secondImage.height);
 
-        second_image = nearestNeighborResize(second_image, largest_width, largest_height);
-        image = nearestNeighborResize(image, largest_width, largest_height);
+        secondImage = nearestNeighborResize(secondImage, largestWidth, largestHeight);
+        image = nearestNeighborResize(image, largestWidth, largestHeight);
 
-        Image merged(largest_width, largest_height);
+        Image merged(largestWidth, largestHeight);
 
         float alpha = 0.5;
         float beta = 1 - alpha;
         float constant = 0;
 
-        for (int i = 0; i < largest_width; i++)
+        for (int i = 0; i < largestWidth; i++)
         {
-            for (int j = 0; j < largest_height; j++)
+            for (int j = 0; j < largestHeight; j++)
             {
                 for (int k = 0; k < 3; k++)
                 {
                     merged(i, j, k) = alpha*image(i, j, k)
-                    + beta*second_image(i, j, k) + constant;
+                    + beta*secondImage(i, j, k) + constant;
                 }
             }
         }
@@ -668,7 +682,7 @@ public:
     {
         int radius = 3;
 
-        Image oiled_up(image.width, image.height);
+        Image oiledUp(image.width, image.height);
 
         for (int i = radius; i < image.width - radius; i++)
         {
@@ -709,20 +723,20 @@ public:
 
                 if (maxCount > 0) // safety condition to not divide by 0
                 {
-                    oiled_up(i,j,0) = sumR[maxIndex] / maxCount;
-                    oiled_up(i,j,1) = sumG[maxIndex] / maxCount;    // divide value by count to find avr
-                    oiled_up(i,j,2) = sumB[maxIndex] / maxCount;
+                    oiledUp(i,j,0) = sumR[maxIndex] / maxCount;
+                    oiledUp(i,j,1) = sumG[maxIndex] / maxCount;    // divide value by count to find avr
+                    oiledUp(i,j,2) = sumB[maxIndex] / maxCount;
                 }
                 else
                 {
-                    oiled_up(i,j,0) = image(i,j,0);
-                    oiled_up(i,j,1) = image(i,j,1);
-                    oiled_up(i,j,2) = image(i,j,2);
+                    oiledUp(i,j,0) = image(i,j,0);
+                    oiledUp(i,j,1) = image(i,j,1);
+                    oiledUp(i,j,2) = image(i,j,2);
                 }
             }
         }
 
-        return oiled_up;
+        return oiledUp;
     }
 
     static Image naturalSunLightFilter(Image &image)
@@ -849,13 +863,13 @@ private:
     {
         switch (choice)
         {
-            case mainMenuChoice::load :
+            case mainMenuChoice::Load :
             {
                 image = loadImage();
                 // displayMainMenu();
                 break;
             }
-            case mainMenuChoice::save :
+            case mainMenuChoice::Save :
             {
                 image = saveImage();
                 // displayMainMenu();
@@ -949,7 +963,7 @@ private:
                 // displayMainMenu();
                 break;
             }
-            case mainMenuChoice::Old_Tv :
+            case mainMenuChoice::OldTv :
             {
                 image = Filter::oldTVFilter(image);
                 stUndo.push(image);
@@ -957,7 +971,7 @@ private:
                 // displayMainMenu();
                 break;
             }
-            case mainMenuChoice::OilPainting:
+            case mainMenuChoice::OilPainting :
             {
                 image = Filter::oilPaintingFilter(image);
                 stUndo.push(image);
@@ -981,25 +995,25 @@ private:
                 // displayMainMenu();
                 break;
             }
-            case mainMenuChoice::undo :
+            case mainMenuChoice::Undo :
             {
                 undoFilter();
                 break;
                 // displayMainMenu();
             }
-            case mainMenuChoice::redo :
+            case mainMenuChoice::Redo :
             {
                 redoFilter();
                 break;
             }
-            case mainMenuChoice::end :
+            case mainMenuChoice::End :
             {
                 isExit = true;
 
                 cout << "Have You saved before exit? (Y/N) ";
-                // cin.ignore(numeric_limits<streamsize>::max(), '\n');
                 string answer = "";
                 getline(cin, answer);
+
                 if (!answer.empty() && (answer[0] == 'N' || answer[0] == 'n'))
                 {
                     cout << "Do You Want to save your image? (Y/N) ";
@@ -1008,7 +1022,6 @@ private:
                     if (!ans.empty() && (ans[0] == 'Y' || ans[0] == 'y'))
                         image = saveImage();
                 }
-
                 cout << "Program Terminates Successfully. :)\n";
                 break;
             }
