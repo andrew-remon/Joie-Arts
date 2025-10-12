@@ -115,6 +115,7 @@ public:
     static Image getImagePath()
     {
         bool isFound = false;
+        Image img;
         do
         {
             string filename;
@@ -123,7 +124,7 @@ public:
                 cout << "Please enter an image: ";
                 getline(cin, filename);
 
-                image = Image(filename);
+                img = Image(filename);
                 isFound = true;
             }
             catch(const std::exception& e)
@@ -133,7 +134,7 @@ public:
             }
         } while (!isFound);
 
-        return image;
+        return img;
     }
 };
 
