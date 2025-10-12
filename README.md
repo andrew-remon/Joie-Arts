@@ -1,6 +1,6 @@
 # 🌈 Joy Animation App
 
-A C++ Object-Oriented **Image Filter Application** that allows users to apply multiple photo filters, transformations, and effects interactively.  
+A C++ Object-Oriented **Image Filter Application** that allows users to choose between '24 Options' to apply multiple photo filters, transformations, and effects interactively.  
 Developed as part of **CS213 - Assignment 1**, this project demonstrates image processing, filter design, and software collaboration principles.
 
 ---
@@ -10,10 +10,10 @@ Developed as part of **CS213 - Assignment 1**, this project demonstrates image p
 **Joy Animation App** is a console-based image processing program that supports a wide range of filters such as grayscale, blur, resizing, rotation, old TV effects, oil painting, and much more.
 
 Users can:
-- Load and save images
-- Apply various filters and transformations
-- Undo and redo applied filters
-- Combine multiple filters for creative results
+- Load and save images.
+- Apply various filters and transformations.
+- Undo and redo applied filters.
+- Combine multiple filters for creative results.
 
 This project also serves as a foundation for the **Grand Competition GUI version**, which is under development.
 
@@ -40,22 +40,34 @@ A video demonstration, detailed documentation, and design diagrams are available
 ## ⚙️ Features
 
 ### 🎨 Basic Filters
-- **Grayscale**
-- **Black & White**
-- **Invert Colors**
-- **Blur**
-- **Crop**
-- **Resize**
-- **Flip / Rotate**
+- **Grayscale**  
+- **Black & White**  
+- **Invert Colors**  
+- **Blur**  
+- **Crop**  
+- **Resize**  
+- **Flip / Rotate**  
+- **Sharpen** ← *(new basic enhancement)*  
+
 
 ### 🌟 Artistic & Advanced Filters
-- **Oil Painting Effect**
-- **Old TV Effect**
-- **Natural Sunlight Filter**
-- **Edge Detection**
-- **Frame Addition**
-- **Darken / Lighten Adjustment**
+- **Red Scale Filter** – creates a warm reddish tone with inverted highlights  
+- **Purpling Filter** – gives a violet aesthetic through channel balance  
+- **Skew Filter** – tilts the image diagonally for a 3D-like visual  
+- **Glitch Filter** – introduces random RGB channel shifts for digital distortion  
+- **Fish-Eye & Vignette Filter** – combines radial distortion with dark corners for a cinematic look  
+- **Cel Shading Filter** – converts photo colors into cartoon-like quantized tones 
+- **Pixel Art Filter** – scales down and up to produce a pixelated retro effect  
+- **Emboss Filter** – highlights edges for a relief-style 3D effect  
+- **Oil Painting Effect**  
+- **Old TV Effect**  
+- **Natural Sunlight Filter**  
+- **Edge Detection**  
+- **Frame Addition**  
+- **Darken / Lighten Adjustment**  
 - **Merge Two Images**
+
+🧩 *Total Filters:* **24**, combining both fundamental and artistic enhancements.
 
 ### 🧭 Utility Features
 - Load and save images with `.jpg`, `.png`, `.bmp`, `.jpeg`
@@ -64,19 +76,37 @@ A video demonstration, detailed documentation, and design diagrams are available
 
 ---
 
+## 🧮 Filter Categories Summary
+
+| Category | Example Filters | Description |
+|-----------|----------------|--------------|
+| **Color & Tone** | Red Scale, Purpling, Invert, Black & White | Adjust image colors and tones |
+| **Artistic** | Oil Painting, Cel Shading, Pixel Art | Creative transformations with visual styles |
+| **Distortion & Geometry** | Skew, Fish-Eye | Warps image geometry using math transformations |
+| **Detail Enhancement** | Sharpen, Emboss, Edge Detection | Enhances or highlights image features |
+| **Effects & Simulation** | Glitch, Old TV, Sunlight, Vignette | Adds cinematic or retro visual effects |
+
+---
+
 ## 🧩 Technical Details
 
 ### 💻 Language
 - **C++**
 
-### 🧠 Concepts Used
-- **Object-Oriented Design (OOP)** — classes, encapsulation, modularity, and abstraction  
-- Image processing algorithms
-- File I/O operations
-- Stack-based undo/redo system
-- Bicubic interpolation for resizing
-- Kernel-based convolution (blur & edge detection)
-- Class-based modular architecture
+## 🧠 Concepts Used
+
+- **Object-Oriented Programming (OOP)** — classes, encapsulation, modularity, abstraction  
+- **Image Processing Algorithms** — pixel manipulation, kernel-based operations  
+- **Matrix Convolution Filters** (e.g., sharpen, emboss, blur, edge detection)  
+- **Color Channel Transformations** — used in red scale, purpling, and glitch filters  
+- **Geometric Transformations** — used in skew and fish-eye filters  
+- **Quantization Techniques** — used in cel shading  
+- **Resampling & Nearest Neighbor Resizing** — used in pixel art filter  
+- **File I/O Operations**  
+- **Stack-based Undo/Redo System**  
+- **Error Handling and Input Validation**  
+- **Math & Trigonometry Functions** — used for distortion, skewing, and angular effects  
+
 
 ### 🧱 Code Structure
 - `Image_Class.h` → Handles image loading, saving, and pixel access  
