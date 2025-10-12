@@ -56,12 +56,13 @@ stack <Image> stRedo;
 enum mainMenuChoice
 {
     Load = 1,
-    AddFrame = 2, BlackAndWhite = 3, Blur = 4,
-    Crop = 5, DarkenOrLighten = 6, DetectEdge = 7,
-    Flip = 8, Grayscale = 9, Invert = 10, Merge = 11,
-    NaturalSunlight = 12 , OilPainting = 13,
-    OldTv = 14, Resize = 15, Rotate = 16,
-    Save = 17, Undo = 18, Redo = 19, End = 20
+    AddFrame = 2, BlackAndWhite = 3, Blur = 4, CelShading = 5,
+    Crop = 6, DarkenOrLighten = 7, DetectEdge = 8, Emboss = 9,
+    FishEye = 10, Flip = 11, Glitch = 12, Grayscale = 13,
+    Invert = 14, Merge = 15, NaturalSunlight = 16,  OilPainting = 17,
+    OldTv = 18, PixelArt = 19, Purpling = 20, RedScale = 21,
+    Resize = 22, Rotate = 23, Sharpen = 24, Skew = 25,
+    Save = 26, Undo = 27, Redo = 28, End = 29
 };
 
 class InputValidation
@@ -302,6 +303,25 @@ private:
 
         return image;
     }
+
+    static Image gamma(Image &image, float gamma = 1.0f)
+    {
+    // pass nums less than 1 to lighten , more than 1 to darken
+    for (int i = 0 ; i < image.width ; i++)
+    {
+        for (int j = 0 ; j < image.height ; j++)
+        {
+            for (int k = 0 ; k < image.channels ; k++)
+            {
+                float val = 255 * pow( (float)(image(i,j,k)/255.0f) , gamma);
+                val = max(0.0f,min(255.0f,val));
+                image(i,j,k) = val;
+            }
+        }
+    }
+
+    return image;
+}
 
 public:
     static Image grayscaleFilter(Image &image)
@@ -605,24 +625,24 @@ public:
             {0.111, 0.111, 0.111}
         };
 
-        Image blurred(image.width-2, image.height-2);
+        Image blurred(image.width, image.height);
 
-        for (int i = 1; i < image.width-1; i++)
+        for (int i = 0; i < image.width; i++)
         {
-            for (int j = 1; j < image.height-1; j++)
+            for (int j = 0; j < image.height; j++)
             {
                 for (int k = 0; k < 3; k++)
                 {
-                    blurred(i-1, j-1, k) =
-                        image (i-1 ,j-1 , k) * kernel[0][0]
-                    +   image (i   ,j-1 , k) * kernel[1][0]
-                    +   image (i+1 ,j-1 , k) * kernel[2][0]
-                    +   image (i-1 ,j   , k) * kernel[0][1]
-                    +   image (i   ,j   , k) * kernel[1][1]
-                    +   image (i+1 ,j   , k) * kernel[2][1]
-                    +   image (i-1 ,j+1 , k) * kernel[0][2]
-                    +   image (i   ,j+1 , k) * kernel[1][2]
-                    +   image (i+1 ,j+1 , k) * kernel[2][2];
+                    blurred(i,j,k) =
+                        image (max(i-1, 0), max(j-1, 0), k) * kernel[0][0]
+                    +   image (i, max(j-1, 0), k) * kernel[1][0]
+                    +   image (min(i+1,image.width-1), max(j-1, 0), k) * kernel[2][0]
+                    +   image (max(i-1,0),j, k) * kernel[0][1]
+                    +   image (i, j, k) * kernel[1][1]
+                    +   image (min(i+1,image.width-1), j, k) * kernel[2][1]
+                    +   image (max(i-1, 0), min(j+1, image.height-1), k) * kernel[0][2]
+                    +   image (i, min(j+1,image.height-1), k) * kernel[1][2]
+                    +   image (min(i+1, image.width-1), min(j+1, image.height-1), k) * kernel[2][2];
                 }
             }
         }
@@ -790,6 +810,261 @@ public:
 
         return cropped;
     }
+
+    static Image redScaleFilter(Image &image)
+    {
+        float red_f = .6 , green_f = 1.7 , blue_f = 1.7;
+        int invert = 255;
+
+        for (int i = 0 ; i < image.width ; ++i)
+        {
+            for (int j = 0 ; j < image.height ; ++j)
+            {
+                int val = image(i, j, 0) * red_f;
+                if (val > 255) {val = 255;}
+                image (i,j,0) = invert - val;
+
+                val = image(i, j, 1) * green_f;
+                if (val > 255) {val = 255;}
+                image (i,j,1) = invert - val;
+
+                val = image(i, j, 2) * blue_f;
+                if (val > 255) {val = 255;}
+                image (i,j,2) = invert - val;
+            }
+        }
+
+        image = gamma(image , .5f);
+        return image;
+    }
+
+    static Image purplingFilter(Image &image)
+    {
+        for (int i = 0; i < image.width; i++)
+        {
+            for (int j = 0; j < image.height; j++)
+            {
+                float val = image(i, j, 0)*1.1f;
+                if (val > 255) {val = 255;}
+                image(i, j, 0) = (int)val;
+
+                val = image(i, j, 1)*0.7f;
+                if (val > 255) {val = 255;}
+                image(i, j, 1) = (int)val;
+
+                val = image(i, j, 2)*1.1f;
+                if (val > 255) {val = 255;}
+                image(i, j, 2) = (int)val;
+            }
+        }
+
+        return image;
+    }
+
+    static Image skewFilter(Image &image, float degree = 40.0f)
+    {
+        float rad = degree * M_PI / 180.0f;
+        float skewFactor = tan(rad);
+        int baseOffset = image.height * skewFactor;
+
+        int newWidth = image.width + abs(baseOffset);
+        int newHeight = image.height;
+
+        Image skewed(newWidth, newHeight);
+
+        for (int i = 0; i < image.width; ++i)
+        {
+            for (int j = 0; j < image.height; ++j)
+            {
+                // -ve j to make it bend to the right not left
+                int offsetX = -j * skewFactor + baseOffset;
+                int newX = i + offsetX;
+
+                if (newX >= 0 && newX < newWidth)
+                {
+                    for (int k = 0; k < image.channels; ++k)
+                        skewed(newX, j, k) = image(i, j, k);
+                }
+            }
+        }
+
+        return skewed;
+    }
+
+    static Image glitchFilter(Image &image, int max_shift = 5)
+    {
+        for (int i = 0; i < image.width; i++)
+        {
+            int shiftR = rand() % (2 * max_shift + 1) - max_shift;
+            int shiftG = rand() % (2 * max_shift + 1) - max_shift;
+            int shiftB = rand() % (2 * max_shift + 1) - max_shift;
+
+            for (int j = 0; j < image.height; j++)
+            {   // src = source
+                int srcR = max(0 ,min(image.width -1 , i + shiftR));
+                int srcG = max(0 ,min(image.width -1 , i + shiftG));
+                int srcB = max(0 ,min(image.width -1 , i + shiftB));
+
+                image(i, j, 0) = image(srcR, j, 0);
+                image(i, j, 1) = image(srcG, j, 1);
+                image(i, j, 2) = image(srcB, j, 2);
+            }
+        }
+
+        return image;
+    }
+
+    static Image fishEyeAndVignetteFilter(Image &image, float vignette_strength = 0.8f)
+    {
+        Image result(image.width, image.height);
+
+        float centerX = image.width / 2.0f;
+        float centerY = image.height / 2.0f;
+        float radius = min(centerX, centerY);
+
+        for (int i = 0; i < image.width; i++)
+        {
+            for (int j = 0; j < image.height; j++)
+            {
+                float x = (i - centerX) / radius;
+                float y = (j - centerY) / radius;
+                float r = sqrt(x * x + y * y);
+
+                float srcX = i;
+                float srcY = j;
+
+                if (r < 1.0f)
+                {
+                    float new_r = (r + (1 - sqrt(1 - r * r))) / 2.0f;
+                    float theta = atan2(y, x);
+                    srcX = centerX + new_r * radius * cos(theta);
+                    srcY = centerY + new_r * radius * sin(theta);
+                }
+
+                for (int k = 0; k < image.channels; k++)
+                {
+                    result(i, j, k) =
+                    image(max(0, min(image.width-1,(int)srcX )), max(0, min(image.height-1,(int)srcY )), k);
+                }
+            }
+        }
+
+        result = vignette(result);
+        return result;
+    }
+
+    static Image celShadingFilter(Image &image, int color_levels = 8)
+    {
+        Image result(image.width, image.height);
+
+        float step = 255.0f / (color_levels - 1);
+
+        for (int i = 0; i < image.width; i++)
+        {
+            for (int j = 0; j < image.height; j++)
+            {
+                for (int k = 0; k < 3; k++)
+                {
+                    float val = image(i, j, k);
+                    val = round(val / step) * step;  // quantize color
+                    result(i, j, k) = max(0.0f,min(255.0f, val));
+                }
+            }
+        }
+
+        return result;
+    }
+
+    static Image pixelArtFilter(Image &image)
+    {
+        int factor = 4;
+
+        if (image.width > 1500 && image.height > 1500)
+            factor = 8;
+
+        if (image.width > 3000 && image.height > 3000)
+            factor = 16;
+
+        int org_width = image.width , org_height = image.height;
+        image = nearestNeighborResize(image , image.width /factor , image.height/factor);
+        image = nearestNeighborResize(image , org_width, org_height);
+
+        return image;
+    }
+
+    static Image sharpenFilter(Image &image)
+    {
+        float kernel[3][3] =
+        {
+            {0 , -1,  0},
+            {-1,  5, -1},
+            {0 , -1,  0}
+        };
+
+        Image sharpened(image.width, image.height);
+
+        for (int i = 0; i < image.width; i++)
+        {
+            for (int j = 0; j < image.height; j++)
+            {
+                for (int k = 0; k < 3; k++)
+                {
+                    float val =
+                        image (max(i-1, 0), max(j-1, 0), k) * kernel[0][0]
+                    +   image (i,max(j-1, 0), k) * kernel[1][0]
+                    +   image (min(i+1, image.width-1), max(j-1, 0), k) * kernel[2][0]
+                    +   image (max(i-1,0), j, k) * kernel[0][1]
+                    +   image (i, j, k) * kernel[1][1]
+                    +   image (min(i+1, image.width-1), j, k) * kernel[2][1]
+                    +   image (max(i-1, 0), min(j+1,image.height-1), k) * kernel[0][2]
+                    +   image (i, min(j+1, image.height-1), k) * kernel[1][2]
+                    +   image (min(i+1, image.width-1), min(j+1,image.height-1), k) * kernel[2][2];
+
+                    val = max(0.0f, min(255.0f, val)); // clamp
+                    sharpened(i, j, k) = val;
+                }
+            }
+        }
+
+        return sharpened;
+    }
+
+    static Image embossFilter(Image &image)
+    {
+        float kernel[3][3] =
+        {
+            {-2, -1,  0},
+            {-1,  1,  1},
+            { 0,  1,  2}
+        };
+
+        Image embossed(image.width, image.height);
+
+        for (int i = 0; i < image.width; i++)
+        {
+            for (int j = 0; j < image.height; j++)
+            {
+                for (int k = 0; k < 3; k++)
+                {
+                    float val =
+                        image (max(i-1, 0), max(j-1, 0), k) * kernel[0][0]
+                    +   image (i, max(j-1, 0), k) * kernel[1][0]
+                    +   image (min(i+1, image.width-1), max(j-1, 0), k) * kernel[2][0]
+                    +   image (max(i-1, 0), j, k) * kernel[0][1]
+                    +   image (i, j, k) * kernel[1][1]
+                    +   image (min(i+1, image.width-1), j, k) * kernel[2][1]
+                    +   image (max(i-1, 0), min(j+1, image.height-1), k) * kernel[0][2]
+                    +   image (i, min(j+1, image.height-1), k) * kernel[1][2]
+                    +   image (min(i+1, image.width-1), min(j+1,image.height-1), k) * kernel[2][2];
+
+                    val = max(0.0f, min(255.0f, val)); // clamp
+                    embossed(i, j, k) = val;
+                }
+            }
+        }
+
+        return embossed;
+    }
 };
 
 class Main
@@ -867,13 +1142,11 @@ private:
             case mainMenuChoice::Load :
             {
                 image = loadImage();
-                // displayMainMenu();
                 break;
             }
             case mainMenuChoice::Save :
             {
                 image = saveImage();
-                // displayMainMenu();
                 break;
             }
             case mainMenuChoice::Grayscale :
@@ -881,7 +1154,6 @@ private:
                 image = Filter::grayscaleFilter(image);
                 stUndo.push(image);
                 applyFilter();
-                // displayMainMenu();
                 break;
             }
             case mainMenuChoice::BlackAndWhite :
@@ -889,7 +1161,6 @@ private:
                 image = Filter::blackAndWhiteFilter(image);
                 stUndo.push(image);
                 applyFilter();
-                // displayMainMenu();
                 break;
             }
             case mainMenuChoice::Invert :
@@ -897,7 +1168,6 @@ private:
                 image = Filter::invertFilter(image);
                 stUndo.push(image);
                 applyFilter();
-                // displayMainMenu();
                 break;
             }
             case mainMenuChoice::Flip :
@@ -905,7 +1175,6 @@ private:
                 image = Filter::flipFilter(image);
                 stUndo.push(image);
                 applyFilter();
-                // displayMainMenu();
                 break;
             }
             case mainMenuChoice::Rotate :
@@ -913,7 +1182,6 @@ private:
                 image = Filter::rotateFilter(image);
                 stUndo.push(image);
                 applyFilter();
-                // displayMainMenu();
                 break;
             }
             case mainMenuChoice::Resize :
@@ -921,7 +1189,6 @@ private:
                 image = Filter::resizeFilter(image);
                 stUndo.push(image);
                 applyFilter();
-                // displayMainMenu();
                 break;
             }
             case mainMenuChoice::DarkenOrLighten :
@@ -929,7 +1196,6 @@ private:
                 image = Filter::darkenOrLightenFilter(image);
                 stUndo.push(image);
                 applyFilter();
-                // displayMainMenu();
                 break;
             }
             case mainMenuChoice::DetectEdge :
@@ -937,7 +1203,6 @@ private:
                 image = Filter::detectBlackEdgeFilter(image);
                 stUndo.push(image);
                 applyFilter();
-                // displayMainMenu();
                 break;
             }
             case mainMenuChoice::AddFrame :
@@ -945,7 +1210,6 @@ private:
                 image = Filter::addFrameFilter(image);
                 stUndo.push(image);
                 applyFilter();
-                // displayMainMenu();
                 break;
             }
             case mainMenuChoice::Blur :
@@ -953,7 +1217,6 @@ private:
                 image = Filter::blurFilter(image);
                 stUndo.push(image);
                 applyFilter();
-                // displayMainMenu();
                 break;
             }
             case mainMenuChoice::Merge :
@@ -961,7 +1224,6 @@ private:
                 image = Filter::mergeFilter(image);
                 stUndo.push(image);
                 applyFilter();
-                // displayMainMenu();
                 break;
             }
             case mainMenuChoice::OldTv :
@@ -969,7 +1231,6 @@ private:
                 image = Filter::oldTVFilter(image);
                 stUndo.push(image);
                 applyFilter();
-                // displayMainMenu();
                 break;
             }
             case mainMenuChoice::OilPainting :
@@ -977,7 +1238,6 @@ private:
                 image = Filter::oilPaintingFilter(image);
                 stUndo.push(image);
                 applyFilter();
-                // displayMainMenu();
                 break;
             }
             case mainMenuChoice::NaturalSunlight :
@@ -993,14 +1253,75 @@ private:
                 image = Filter::cropFilter(image);
                 stUndo.push(image);
                 applyFilter();
-                // displayMainMenu();
+                break;
+            }
+            case mainMenuChoice::CelShading :
+            {
+                image = Filter::celShadingFilter(image);
+                stUndo.push(image);
+                applyFilter();
+                break;
+            }
+            case mainMenuChoice::Emboss :
+            {
+                image = Filter::embossFilter(image);
+                stUndo.push(image);
+                applyFilter();
+                break;
+            }
+            case mainMenuChoice::FishEye :
+            {
+                image = Filter::fishEyeAndVignetteFilter(image);
+                stUndo.push(image);
+                applyFilter();
+                break;
+            }
+            case mainMenuChoice::Glitch :
+            {
+                image = Filter::glitchFilter(image);
+                stUndo.push(image);
+                applyFilter();
+                break;
+            }
+            case mainMenuChoice::PixelArt :
+            {
+                image = Filter::pixelArtFilter(image);
+                stUndo.push(image);
+                applyFilter();
+                break;
+            }
+            case mainMenuChoice::Purpling :
+            {
+                image = Filter::purplingFilter(image);
+                stUndo.push(image);
+                applyFilter();
+                break;
+            }
+            case mainMenuChoice::RedScale :
+            {
+                image = Filter::redScaleFilter(image);
+                stUndo.push(image);
+                applyFilter();
+                break;
+            }
+            case mainMenuChoice::Sharpen :
+            {
+                image = Filter::sharpenFilter(image);
+                stUndo.push(image);
+                applyFilter();
+                break;
+            }
+            case mainMenuChoice::Skew :
+            {
+                image = Filter::skewFilter(image);
+                stUndo.push(image);
+                applyFilter();
                 break;
             }
             case mainMenuChoice::Undo :
             {
                 undoFilter();
                 break;
-                // displayMainMenu();
             }
             case mainMenuChoice::Redo :
             {
@@ -1045,23 +1366,32 @@ public:
         cout << "[2]  Add Frame Filter\n";
         cout << "[3]  BlackAndWhite Filter\n";
         cout << "[4]  Blur Filter\n";
-        cout << "[5]  Crop Filter\n";
-        cout << "[6]  DarkenOrLighten Filter\n";
-        cout << "[7]  DetectEdge Filter\n";
-        cout << "[8]  Flip Filter\n";
-        cout << "[9]  GrayScale Filter\n";
-        cout << "[10] Invert Filter\n";
-        cout << "[11] Merge Filter\n";
-        cout << "[12] Natural Sunlight Filter\n";
-        cout << "[13] Oil Painting Filter\n";
-        cout << "[14] Old TV Filter\n";
-        cout << "[15] Resize Filter\n";
-        cout << "[16] Rotate Filter\n";
-        cout << "[17] Save the image.\n";
-        cout << "[18] Undo the Filter.\n";
-        cout << "[19] Redo the Filter.\n";
-        cout << "[20] Exit\n";
-        performMainMenuChoice((mainMenuChoice)InputValidation::readIntNumberBetween(1, 20, "Please Enter a number between 1 and 20"));
+        cout << "[5]  CelShading Filter\n";
+        cout << "[6]  Crop Filter\n";
+        cout << "[7]  DarkenOrLighten Filter\n";
+        cout << "[8]  DetectEdge Filter\n";
+        cout << "[9]  Emboss Filter\n";
+        cout << "[10] FishEye Filter\n";
+        cout << "[11] Flip Filter\n";
+        cout << "[12] Glitch Filter\n";
+        cout << "[13] GrayScale Filter\n";
+        cout << "[14] Invert Filter\n";
+        cout << "[15] Merge Filter\n";
+        cout << "[16] Natural Sunlight Filter\n";
+        cout << "[17] Oil Painting Filter\n";
+        cout << "[18] Old TV Filter\n";
+        cout << "[19] PixelArt Filter\n";
+        cout << "[20] Purpling Filter\n";
+        cout << "[21] RedScale Filter\n";
+        cout << "[22] Resize Filter\n";
+        cout << "[23] Rotate Filter\n";
+        cout << "[24] Sharpen Filter\n";
+        cout << "[25] Skew Filter\n";
+        cout << "[26] Save the image.\n";
+        cout << "[27] Undo the Filter.\n";
+        cout << "[28] Redo the Filter.\n";
+        cout << "[29] Exit\n";
+        performMainMenuChoice((mainMenuChoice)InputValidation::readIntNumberBetween(1, 29, "Please Enter a number between 1 and 29"));
     }
 
     static void beginProgram()
