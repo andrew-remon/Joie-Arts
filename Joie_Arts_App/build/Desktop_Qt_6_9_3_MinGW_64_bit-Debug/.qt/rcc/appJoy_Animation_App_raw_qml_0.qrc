@@ -1,0 +1,6 @@
+<RCC>
+  <qresource prefix="/qt/qml/Joy_Animation_App/">
+    <file alias="Main.qml">M:/VSC projects'/QT QML Project/Joy_Animation_App/Main.qml</file>
+  </qresource>
+</RCC>
+

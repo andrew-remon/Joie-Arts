@@ -1,0 +1,196 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-Debug-9aed9bba618acbea0855.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						14,
+						15
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "Joy_Animation_App",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						14,
+						15
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "all_aotstats::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-all_aotstats-Debug-9b4e6f248d88dea00c4c.json",
+					"name" : "all_aotstats",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "all_qmllint::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-all_qmllint-Debug-a9f66efcde01f9fc4c6b.json",
+					"name" : "all_qmllint",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "all_qmllint_json::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-all_qmllint_json-Debug-baf3e80d9ef2a5a01d64.json",
+					"name" : "all_qmllint_json",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "all_qmllint_module::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-all_qmllint_module-Debug-727395b988324b6e68aa.json",
+					"name" : "all_qmllint_module",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "all_qmltyperegistrations::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-all_qmltyperegistrations-Debug-48f0312c26e107de3585.json",
+					"name" : "all_qmltyperegistrations",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "appJoy_Animation_App::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-appJoy_Animation_App-Debug-d94ca781976cbfb5a385.json",
+					"name" : "appJoy_Animation_App",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "appJoy_Animation_App_autogen::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-appJoy_Animation_App_autogen-Debug-0268ce26daf7fbfa1551.json",
+					"name" : "appJoy_Animation_App_autogen",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "appJoy_Animation_App_autogen_timestamp_deps::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-appJoy_Animation_App_autogen_timestamp_deps-Debug-4afc2b53bdc5ef2cd7ac.json",
+					"name" : "appJoy_Animation_App_autogen_timestamp_deps",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "appJoy_Animation_App_copy_qml::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-appJoy_Animation_App_copy_qml-Debug-a532dbd458f3851e2a8d.json",
+					"name" : "appJoy_Animation_App_copy_qml",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "appJoy_Animation_App_copy_res::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-appJoy_Animation_App_copy_res-Debug-720c20dd9770d6ce2ca5.json",
+					"name" : "appJoy_Animation_App_copy_res",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "appJoy_Animation_App_qmlimportscan::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-appJoy_Animation_App_qmlimportscan-Debug-0f2c60b523c4244e196d.json",
+					"name" : "appJoy_Animation_App_qmlimportscan",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "appJoy_Animation_App_qmllint::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-appJoy_Animation_App_qmllint-Debug-3a2f4ae9f1c7d8d0bc20.json",
+					"name" : "appJoy_Animation_App_qmllint",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "appJoy_Animation_App_qmllint_json::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-appJoy_Animation_App_qmllint_json-Debug-427d150e3e4d396954f5.json",
+					"name" : "appJoy_Animation_App_qmllint_json",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "appJoy_Animation_App_qmllint_module::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-appJoy_Animation_App_qmllint_module-Debug-9cfdb562c9c9f7b62bd1.json",
+					"name" : "appJoy_Animation_App_qmllint_module",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "appJoy_Animation_App_qmltyperegistration::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-appJoy_Animation_App_qmltyperegistration-Debug-1cb66ee77116b7ee373c.json",
+					"name" : "appJoy_Animation_App_qmltyperegistration",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "module_appJoy_Animation_App_aotstats_target::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-module_appJoy_Animation_App_aotstats_target-Debug-89c778b844dbe19e6e40.json",
+					"name" : "module_appJoy_Animation_App_aotstats_target",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "M:/VSC projects'/QT QML Project/Joy_Animation_App/build/Desktop_Qt_6_9_3_MinGW_64_bit-Debug",
+		"source" : "M:/VSC projects'/QT QML Project/Joy_Animation_App"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 7
+	}
+}

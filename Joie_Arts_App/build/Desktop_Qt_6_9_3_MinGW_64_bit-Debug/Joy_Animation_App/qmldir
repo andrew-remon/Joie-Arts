@@ -1,0 +1,6 @@
+module Joy_Animation_App
+typeinfo appJoy_Animation_App.qmltypes
+prefer :/qt/qml/Joy_Animation_App/
+Main 1.0 Main.qml
+depends QtQuick
+

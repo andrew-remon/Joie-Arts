@@ -1,0 +1,15 @@
+--bare
+-I
+M:/QT_QML_Project/Joy_Animation_App/build
+-I
+M:/Setups/QT/6.9.3/mingw_64/qml
+--resource
+M:/QT_QML_Project/Joy_Animation_App/build/.qt/rcc/qmake_Joy_Animation_App.qrc
+--resource
+M:/QT_QML_Project/Joy_Animation_App/build/.qt/rcc/appJoy_Animation_App_raw_qml_0.qrc
+--resource
+M:/QT_QML_Project/Joy_Animation_App/build/.qt/rcc/resources.qrc
+M:/QT_QML_Project/Joy_Animation_App/Main.qml
+M:/QT_QML_Project/Joy_Animation_App/CustomSlider.qml
+--json
+M:/QT_QML_Project/Joy_Animation_App/build/appJoy_Animation_App_qmllint.json
