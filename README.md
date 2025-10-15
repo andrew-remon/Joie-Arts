@@ -1,13 +1,13 @@
-# 🌈 Joy Animation App
+# 🌈 Joie Arts - Filter Application
 
-A C++ Object-Oriented **Image Filter Application** that allows users to choose between '24 Options' to apply multiple photo filters, transformations, and effects interactively.  
+A C++ Object-Oriented **Image Filter Application** that allows users to choose between '26 Options' to apply multiple photo filters, transformations, and effects interactively.  
 Developed as part of **CS213 - Assignment 1**, this project demonstrates image processing, filter design, and software collaboration principles.
 
 ---
 
 ## 🖼️ Overview
 
-**Joy Animation App** is a console-based image processing program that supports a wide range of filters such as grayscale, blur, resizing, rotation, old TV effects, oil painting, and much more.
+**Joie Arts** is a console-based image processing program that supports a wide range of filters such as grayscale, blur, resizing, rotation, old TV effects, oil painting, and much more.
 
 Users can:
 - Load and save images.
@@ -58,7 +58,9 @@ A video demonstration, detailed documentation, and design diagrams are available
 - **Fish-Eye & Vignette Filter** – combines radial distortion with dark corners for a cinematic look  
 - **Cel Shading Filter** – converts photo colors into cartoon-like quantized tones 
 - **Pixel Art Filter** – scales down and up to produce a pixelated retro effect  
-- **Emboss Filter** – highlights edges for a relief-style 3D effect  
+- **Emboss Filter** – highlights edges for a relief-style 3D effect
+- **Film Frame Effect:** Highlights edges and adds a customizable border for a classic film-style frame.
+- **Midnight Effect:** Creates a moody night look by darkening tones, adding purplish-red hues, and inverting colors for a cinematic feel.
 - **Oil Painting Effect**  
 - **Old TV Effect**  
 - **Natural Sunlight Filter**  
@@ -67,7 +69,7 @@ A video demonstration, detailed documentation, and design diagrams are available
 - **Darken / Lighten Adjustment**  
 - **Merge Two Images**
 
-🧩 *Total Filters:* **24**, combining both fundamental and artistic enhancements.
+🧩 *Total Filters:* **26**, combining both fundamental and artistic enhancements.
 
 ### 🧭 Utility Features
 - Load and save images with `.jpg`, `.png`, `.bmp`, `.jpeg`
@@ -81,9 +83,9 @@ A video demonstration, detailed documentation, and design diagrams are available
 | Category | Example Filters | Description |
 |-----------|----------------|--------------|
 | **Color & Tone** | Red Scale, Purpling, Invert, Black & White | Adjust image colors and tones |
-| **Artistic** | Oil Painting, Cel Shading, Pixel Art | Creative transformations with visual styles |
+| **Artistic** | Oil Painting, Cel Shading, Pixel Art, Midnight  Effect | Creative transformations with visual styles |
 | **Distortion & Geometry** | Skew, Fish-Eye | Warps image geometry using math transformations |
-| **Detail Enhancement** | Sharpen, Emboss, Edge Detection | Enhances or highlights image features |
+| **Detail Enhancement** | Sharpen, Emboss, Edge Detection, Film Frame | Enhances or highlights image features |
 | **Effects & Simulation** | Glitch, Old TV, Sunlight, Vignette | Adds cinematic or retro visual effects |
 
 ---
