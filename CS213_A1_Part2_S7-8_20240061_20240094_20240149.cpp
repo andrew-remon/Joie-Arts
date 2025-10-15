@@ -56,13 +56,13 @@ stack <Image> stRedo;
 enum mainMenuChoice
 {
     Load = 1,
-    AddFrame = 2, BlackAndWhite = 3, Blur = 4, CelShading = 5,
-    Crop = 6, DarkenOrLighten = 7, DetectEdge = 8, Emboss = 9,
-    FishEye = 10, Flip = 11, Glitch = 12, Grayscale = 13,
-    Invert = 14, Merge = 15, NaturalSunlight = 16,  OilPainting = 17,
-    OldTv = 18, PixelArt = 19, Purpling = 20, RedScale = 21,
-    Resize = 22, Rotate = 23, Sharpen = 24, Skew = 25,
-    Save = 26, Undo = 27, Redo = 28, End = 29
+    AddFrame = 2, AddFilmFrame = 3, BlackAndWhite = 4, Blur = 5, CelShading = 6,
+    Crop = 7, DarkenOrLighten = 8, DetectEdge = 9, Emboss = 10,
+    FishEye = 11, Flip = 12, Glitch = 13, Grayscale = 14,
+    Invert = 15, Merge = 16, Midnight = 17, NaturalSunlight = 18, OilPainting = 19,
+    OldTv = 20, PixelArt = 21, Purpling = 22, RedScale = 23,
+    Resize = 24, Rotate = 25, Sharpen = 26, Skew = 27,
+    Save = 28, Undo = 29, Redo = 30, End = 31
 };
 
 class InputValidation
@@ -486,7 +486,7 @@ public:
         cout << "Do you want to Darken or Lighten it?\n";
         cout << "Enter 1 to Darken and 2 to Lighten\n";
 
-        int x = InputValidation::readIntNumber();
+        int x = InputValidation::readIntNumberBetween(1, 2, "Please Enter a number from 1 to 2\n");
 
         if (x == 1)
             image = darken(image);
@@ -616,6 +616,80 @@ public:
         return framed;
     }
 
+    static Image addFilmFrameFilter(Image &image)
+    {
+        int minDim = min(image.width, image.height);
+        int thickness = max(10, minDim / 30);
+        int holeSize = max(5, minDim / 60);
+        int holeSpacing = max(8, minDim / 40);
+
+        Image framed(image.width, image.height);
+        image = addFrameFilter(image , thickness + thickness/2,0,0,0);
+
+        for (int i = 0; i < image.width; i++)
+        {
+            for (int j = 0; j < image.height; j++)
+            {
+                bool isFrame = (j < thickness) || (j >= image.height - thickness);
+                if (j < thickness && (i % (holeSize + holeSpacing) < holeSize))
+                    isFrame = false;
+
+                if (j >= image.height - thickness && (i % (holeSize + holeSpacing) < holeSize))
+                    isFrame = false;
+
+                if (isFrame)
+                {
+                    for (int k = 0; k < 3; k++)
+                        framed(i, j, k) = 190;
+                }
+                else
+                {
+                    for (int k = 0; k < 3; k++)
+                        framed(i, j, k) = image(i, j, k);
+                }
+            }
+        }
+
+        return framed;
+    }
+
+    static Image addDoubleFrameFilter(Image &image, int outerThickness = 12, int innerThickness = 8, int gap = 10, int R = 255, int G = 255, int B = 255)
+    {
+        int w = image.width;
+        int h = image.height;
+        Image framed(w, h);
+
+        for (int i = 0; i < w; i++)
+        {
+            for (int j = 0; j < h; j++)
+            {
+                bool isOuterFrame = (i < outerThickness) || (i >= w - outerThickness) ||
+                                    (j < outerThickness) || (j >= h - outerThickness);
+
+                bool isInnerFrame = (i >= outerThickness + gap && i < outerThickness + gap + innerThickness) ||
+                                    (i >= w - (outerThickness + gap + innerThickness) && i < w - (outerThickness + gap)) ||
+                                    (j >= outerThickness + gap && j < outerThickness + gap + innerThickness) ||
+                                    (j >= h - (outerThickness + gap + innerThickness) && j < h - (outerThickness + gap));
+
+                if (isOuterFrame || isInnerFrame)
+                {
+                    framed(i, j, 0) = R;
+                    framed(i, j, 1) = G;
+                    framed(i, j, 2) = B;
+                }
+
+                else
+                {
+                    framed(i, j, 0) = image(i, j, 0);
+                    framed(i, j, 1) = image(i, j, 1);
+                    framed(i, j, 2) = image(i, j, 2);
+                }
+            }
+        }
+
+        return framed;
+    }
+
     static Image blurFilter(Image &image)
     {
         float kernel[3][3] =
@@ -681,6 +755,16 @@ public:
         }
 
         return merged;
+    }
+
+    static Image midnightFilter(Image &image)
+    {
+        image = darken(image);
+        image = purplingFilter(image);
+        image = redScaleFilter(image);
+        image = invertFilter(image);
+
+        return image;
     }
 
     static Image oldTVFilter(Image &image)
@@ -1212,6 +1296,20 @@ private:
                 applyFilter();
                 break;
             }
+            case mainMenuChoice::AddFilmFrame :
+            {
+                cout << "\nDo You want Single or Double Film Frame?\n";
+                cout << "Enter 1 for single and 2 for double\n";
+
+                int x = InputValidation::readIntNumberBetween(1, 2, "Please Enter 1 or 2\n");
+
+                if (x == 1) image = Filter::addFilmFrameFilter(image);
+                else image = Filter::addDoubleFrameFilter(image);
+
+                stUndo.push(image);
+                applyFilter();
+                break;
+            }
             case mainMenuChoice::Blur :
             {
                 image = Filter::blurFilter(image);
@@ -1222,6 +1320,13 @@ private:
             case mainMenuChoice::Merge :
             {
                 image = Filter::mergeFilter(image);
+                stUndo.push(image);
+                applyFilter();
+                break;
+            }
+            case mainMenuChoice::Midnight :
+            {
+                image = Filter::midnightFilter(image);
                 stUndo.push(image);
                 applyFilter();
                 break;
@@ -1364,34 +1469,36 @@ public:
         cout << "Choose The number corresponding to your choice: \n";
         cout << "[1]  Load a new Image.\n";
         cout << "[2]  Add Frame Filter\n";
-        cout << "[3]  BlackAndWhite Filter\n";
-        cout << "[4]  Blur Filter\n";
-        cout << "[5]  CelShading Filter\n";
-        cout << "[6]  Crop Filter\n";
-        cout << "[7]  DarkenOrLighten Filter\n";
-        cout << "[8]  DetectEdge Filter\n";
-        cout << "[9]  Emboss Filter\n";
-        cout << "[10] FishEye Filter\n";
-        cout << "[11] Flip Filter\n";
-        cout << "[12] Glitch Filter\n";
-        cout << "[13] GrayScale Filter\n";
-        cout << "[14] Invert Filter\n";
-        cout << "[15] Merge Filter\n";
-        cout << "[16] Natural Sunlight Filter\n";
-        cout << "[17] Oil Painting Filter\n";
-        cout << "[18] Old TV Filter\n";
-        cout << "[19] PixelArt Filter\n";
-        cout << "[20] Purpling Filter\n";
-        cout << "[21] RedScale Filter\n";
-        cout << "[22] Resize Filter\n";
-        cout << "[23] Rotate Filter\n";
-        cout << "[24] Sharpen Filter\n";
-        cout << "[25] Skew Filter\n";
-        cout << "[26] Save the image.\n";
-        cout << "[27] Undo the Filter.\n";
-        cout << "[28] Redo the Filter.\n";
-        cout << "[29] Exit\n";
-        performMainMenuChoice((mainMenuChoice)InputValidation::readIntNumberBetween(1, 29, "Please Enter a number between 1 and 29"));
+        cout << "[3]  Add Film Frame Filter\n";
+        cout << "[4]  BlackAndWhite Filter\n";
+        cout << "[5]  Blur Filter\n";
+        cout << "[6]  CelShading Filter\n";
+        cout << "[7]  Crop Filter\n";
+        cout << "[8]  DarkenOrLighten Filter\n";
+        cout << "[9]  DetectEdge Filter\n";
+        cout << "[10] Emboss Filter\n";
+        cout << "[11] FishEye Filter\n";
+        cout << "[12] Flip Filter\n";
+        cout << "[13] Glitch Filter\n";
+        cout << "[14] GrayScale Filter\n";
+        cout << "[15] Invert Filter\n";
+        cout << "[16] Merge Filter\n";
+        cout << "[17] Midnight Filter\n";
+        cout << "[18] Natural Sunlight Filter\n";
+        cout << "[19] Oil Painting Filter\n";
+        cout << "[20] Old TV Filter\n";
+        cout << "[21] PixelArt Filter\n";
+        cout << "[22] Purpling Filter\n";
+        cout << "[23] RedScale Filter\n";
+        cout << "[24] Resize Filter\n";
+        cout << "[25] Rotate Filter\n";
+        cout << "[26] Sharpen Filter\n";
+        cout << "[27] Skew Filter\n";
+        cout << "[28] Save the image.\n";
+        cout << "[29] Undo the Filter.\n";
+        cout << "[30] Redo the Filter.\n";
+        cout << "[31] Exit\n";
+        performMainMenuChoice((mainMenuChoice)InputValidation::readIntNumberBetween(1, 31, "Please Enter a number between 1 and 31"));
     }
 
     static void beginProgram()
