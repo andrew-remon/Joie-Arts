@@ -24,21 +24,21 @@ Below are snapshots of the application in action:
 ### 🖼️ Interface Previews
 
 <p align="center">
-  <img src="Joie_Arts_App/App%20Snapshots/Interface1.jpeg" width="250">
-  <img src="Joie_Arts_App/App%20Snapshots/Interface2.jpeg" width="250">
-  <img src="Joie_Arts_App/App%20Snapshots/Interface3.jpeg" width="250">
+  <img src="Joie_Arts_App/App%20Snapshots/1.jpeg" width="250">
+  <img src="Joie_Arts_App/App%20Snapshots/2.jpeg" width="250">
+  <img src="Joie_Arts_App/App%20Snapshots/3.jpeg" width="250">
 </p>
 
 ### 🎨 Filter Previews
 
 <p align="center">
-  <img src="Joie_Arts_App/App%20Snapshots/Filter4.jpeg" width="200">
-  <img src="Joie_Arts_App/App%20Snapshots/Filter5.jpeg" width="200">
-  <img src="Joie_Arts_App/App%20Snapshots/Filter6.jpeg" width="200">
-  <img src="Joie_Arts_App/App%20Snapshots/Filter7.jpeg" width="200">
-  <img src="Joie_Arts_App/App%20Snapshots/Filter8.jpeg" width="200">
-  <img src="Joie_Arts_App/App%20Snapshots/Filter9.jpeg" width="200">
-  <img src="Joie_Arts_App/App%20Snapshots/Filter10.jpeg" width="200">
+  <img src="Joie_Arts_App/App%20Snapshots/4.jpeg" width="200">
+  <img src="Joie_Arts_App/App%20Snapshots/5.jpeg" width="200">
+  <img src="Joie_Arts_App/App%20Snapshots/6.jpeg" width="200">
+  <img src="Joie_Arts_App/App%20Snapshots/7.jpeg" width="200">
+  <img src="Joie_Arts_App/App%20Snapshots/8.jpeg" width="200">
+  <img src="Joie_Arts_App/App%20Snapshots/9.jpeg" width="200">
+  <img src="Joie_Arts_App/App%20Snapshots/10.jpeg" width="200">
 </p>
 
 
