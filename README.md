@@ -182,4 +182,4 @@ Bring creativity and realism with complex, algorithmic effects:
 ---
 
 ## 📜 License
-This project is developed for academic and educational purposes under the supervision of Faculty of Computers and Artificial Intelligenct, Cairo University.
+This project is developed for academic and educational purposes under the supervision of Faculty of Computers and Artificial Intelligence, Cairo University.
