@@ -21,9 +21,26 @@ Users can now:
 
 Below are snapshots of the application in action:
 
-| Interface Preview | Example Filter Output |
-|--------------------|----------------------|
-| ![App GUI Screenshot 1](Joie_Arts_App/App%20Snapshots/1.jpeg) | ![Filter Example](App%20Snapshots/4.jpeg) |
+### 🖼️ Interface Previews
+
+<p align="center">
+  <img src="Joie_Arts_App/App%20Snapshots/Interface1.jpeg" width="250">
+  <img src="Joie_Arts_App/App%20Snapshots/Interface2.jpeg" width="250">
+  <img src="Joie_Arts_App/App%20Snapshots/Interface3.jpeg" width="250">
+</p>
+
+### 🎨 Filter Previews
+
+<p align="center">
+  <img src="Joie_Arts_App/App%20Snapshots/Filter4.jpeg" width="200">
+  <img src="Joie_Arts_App/App%20Snapshots/Filter5.jpeg" width="200">
+  <img src="Joie_Arts_App/App%20Snapshots/Filter6.jpeg" width="200">
+  <img src="Joie_Arts_App/App%20Snapshots/Filter7.jpeg" width="200">
+  <img src="Joie_Arts_App/App%20Snapshots/Filter8.jpeg" width="200">
+  <img src="Joie_Arts_App/App%20Snapshots/Filter9.jpeg" width="200">
+  <img src="Joie_Arts_App/App%20Snapshots/Filter10.jpeg" width="200">
+</p>
+
 
 🎥 **YouTube Demo:**  
 A full demonstration video showing the GUI workflow will be available in the repository:  
