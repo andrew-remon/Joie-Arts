@@ -1,0 +1,8 @@
+--resource
+M:/QT_QML_Project/Joy_Animation_App/build/.qt/rcc/qmake_Joy_Animation_App.qrc
+--resource
+M:/QT_QML_Project/Joy_Animation_App/build/.qt/rcc/appJoy_Animation_App_raw_qml_0.qrc
+--resource
+M:/QT_QML_Project/Joy_Animation_App/build/.qt/rcc/resources.qrc
+/qt/qml/Joy_Animation_App/Main.qml
+/qt/qml/Joy_Animation_App/CustomSlider.qml

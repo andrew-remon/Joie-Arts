@@ -1,0 +1,2452 @@
+[
+    {
+        "moduleFiles": [
+            {
+                "entries": [
+                    {
+                        "codegenSuccessful": true,
+                        "column": 12,
+                        "durationMicroseconds": 339,
+                        "errorMessage": "",
+                        "functionName": "color",
+                        "line": 21
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 21,
+                        "durationMicroseconds": 53,
+                        "errorMessage": "",
+                        "functionName": "theme",
+                        "line": 11
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 22,
+                        "durationMicroseconds": 61,
+                        "errorMessage": "",
+                        "functionName": "nameFilters",
+                        "line": 32
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 21,
+                        "durationMicroseconds": 86,
+                        "errorMessage": "",
+                        "functionName": "onAccepted",
+                        "line": 33
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 19,
+                        "durationMicroseconds": 44,
+                        "errorMessage": "",
+                        "functionName": "fileMode",
+                        "line": 38
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 22,
+                        "durationMicroseconds": 53,
+                        "errorMessage": "",
+                        "functionName": "nameFilters",
+                        "line": 39
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 21,
+                        "durationMicroseconds": 79,
+                        "errorMessage": "",
+                        "functionName": "onAccepted",
+                        "line": 40
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 22,
+                        "durationMicroseconds": 59,
+                        "errorMessage": "",
+                        "functionName": "nameFilters",
+                        "line": 45
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 21,
+                        "durationMicroseconds": 30,
+                        "errorMessage": "Cannot find name currentOpenPanel",
+                        "functionName": "onAccepted",
+                        "line": 46
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 26,
+                        "durationMicroseconds": 79,
+                        "errorMessage": "",
+                        "functionName": "standardButtons",
+                        "line": 55
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 21,
+                        "durationMicroseconds": 380,
+                        "errorMessage": "Cannot generate efficient code for call to untyped JavaScript function",
+                        "functionName": "onAccepted",
+                        "line": 79
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 27,
+                        "durationMicroseconds": 33,
+                        "errorMessage": "",
+                        "functionName": "centerIn",
+                        "line": 58
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 31,
+                        "durationMicroseconds": 23,
+                        "errorMessage": "",
+                        "functionName": "centerIn",
+                        "line": 64
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 35,
+                        "durationMicroseconds": 54,
+                        "errorMessage": "",
+                        "functionName": "inputMethodHints",
+                        "line": 70
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 35,
+                        "durationMicroseconds": 36,
+                        "errorMessage": "",
+                        "functionName": "inputMethodHints",
+                        "line": 76
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 16,
+                        "durationMicroseconds": 152,
+                        "errorMessage": "",
+                        "functionName": "color",
+                        "line": 91
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 16,
+                        "durationMicroseconds": 33,
+                        "errorMessage": "",
+                        "functionName": "width",
+                        "line": 93
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 22,
+                        "durationMicroseconds": 41,
+                        "errorMessage": "",
+                        "functionName": "top",
+                        "line": 94
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 27,
+                        "durationMicroseconds": 49,
+                        "errorMessage": "",
+                        "functionName": "left",
+                        "line": 98
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 27,
+                        "durationMicroseconds": 32,
+                        "errorMessage": "",
+                        "functionName": "fillMode",
+                        "line": 109
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 24,
+                        "durationMicroseconds": 163,
+                        "errorMessage": "",
+                        "functionName": "color",
+                        "line": 116
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 36,
+                        "durationMicroseconds": 33,
+                        "errorMessage": "",
+                        "functionName": "verticalAlignment",
+                        "line": 119
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 41,
+                        "durationMicroseconds": 44,
+                        "errorMessage": "",
+                        "functionName": "verticalCenter",
+                        "line": 120
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 23,
+                        "durationMicroseconds": 64,
+                        "errorMessage": "",
+                        "functionName": "text",
+                        "line": 125
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 24,
+                        "durationMicroseconds": 232,
+                        "errorMessage": "",
+                        "functionName": "color",
+                        "line": 126
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 41,
+                        "durationMicroseconds": 49,
+                        "errorMessage": "",
+                        "functionName": "verticalCenter",
+                        "line": 129
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 28,
+                        "durationMicroseconds": 200,
+                        "errorMessage": "",
+                        "functionName": "onToggled",
+                        "line": 153
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 41,
+                        "durationMicroseconds": 48,
+                        "errorMessage": "",
+                        "functionName": "verticalCenter",
+                        "line": 135
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 28,
+                        "durationMicroseconds": 138,
+                        "errorMessage": "",
+                        "functionName": "color",
+                        "line": 142
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 28,
+                        "durationMicroseconds": 204,
+                        "errorMessage": "",
+                        "functionName": "x",
+                        "line": 148
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 49,
+                        "durationMicroseconds": 46,
+                        "errorMessage": "",
+                        "functionName": "verticalCenter",
+                        "line": 147
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 37,
+                        "durationMicroseconds": 41,
+                        "errorMessage": "",
+                        "functionName": "verticalCenter",
+                        "line": 158
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 28,
+                        "durationMicroseconds": 48,
+                        "errorMessage": "",
+                        "functionName": "right",
+                        "line": 159
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 24,
+                        "durationMicroseconds": 365,
+                        "errorMessage": "Cannot generate efficient code for LoadClosure",
+                        "functionName": "model",
+                        "line": 164
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 28,
+                        "durationMicroseconds": 223,
+                        "errorMessage": "Cannot access value for name modelData",
+                        "functionName": "width",
+                        "line": 173
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 29,
+                        "durationMicroseconds": 164,
+                        "errorMessage": "Cannot access value for name modelData",
+                        "functionName": "height",
+                        "line": 174
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 29,
+                        "durationMicroseconds": 162,
+                        "errorMessage": "Cannot access value for name modelData",
+                        "functionName": "radius",
+                        "line": 175
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 28,
+                        "durationMicroseconds": 122,
+                        "errorMessage": "Cannot access value for name modelData",
+                        "functionName": "color",
+                        "line": 178
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 31,
+                        "durationMicroseconds": 141,
+                        "errorMessage": "Cannot access value for name modelData",
+                        "functionName": "text",
+                        "line": 181
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 43,
+                        "durationMicroseconds": 42,
+                        "errorMessage": "",
+                        "functionName": "centerIn",
+                        "line": 180
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 36,
+                        "durationMicroseconds": 9,
+                        "errorMessage": "Type (component in M:/QT_QML_Project/Joy_Animation_App/Main.qml)::parent with type QQuickItem does not have a property hovered for writing",
+                        "functionName": "onEntered",
+                        "line": 189
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 35,
+                        "durationMicroseconds": 6,
+                        "errorMessage": "Type (component in M:/QT_QML_Project/Joy_Animation_App/Main.qml)::parent with type QQuickItem does not have a property hovered for writing",
+                        "functionName": "onExited",
+                        "line": 190
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 36,
+                        "durationMicroseconds": 103,
+                        "errorMessage": "Cannot access value for name modelData",
+                        "functionName": "onClicked",
+                        "line": 191
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 39,
+                        "durationMicroseconds": 27,
+                        "errorMessage": "",
+                        "functionName": "fill",
+                        "line": 187
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 16,
+                        "durationMicroseconds": 524,
+                        "errorMessage": "",
+                        "functionName": "color",
+                        "line": 202
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 16,
+                        "durationMicroseconds": 104,
+                        "errorMessage": "",
+                        "functionName": "width",
+                        "line": 204
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 25,
+                        "durationMicroseconds": 74,
+                        "errorMessage": "",
+                        "functionName": "bottom",
+                        "line": 205
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 31,
+                        "durationMicroseconds": 26,
+                        "errorMessage": "",
+                        "functionName": "centerIn",
+                        "line": 209
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 27,
+                        "durationMicroseconds": 258,
+                        "errorMessage": "Cannot generate efficient code for call to untyped JavaScript function",
+                        "functionName": "text",
+                        "line": 211
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 92,
+                        "durationMicroseconds": 163,
+                        "errorMessage": "",
+                        "functionName": "color",
+                        "line": 211
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 27,
+                        "durationMicroseconds": 175,
+                        "errorMessage": "",
+                        "functionName": "text",
+                        "line": 212
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 94,
+                        "durationMicroseconds": 162,
+                        "errorMessage": "",
+                        "functionName": "color",
+                        "line": 212
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 16,
+                        "durationMicroseconds": 36,
+                        "errorMessage": "",
+                        "functionName": "width",
+                        "line": 218
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 16,
+                        "durationMicroseconds": 247,
+                        "errorMessage": "",
+                        "functionName": "color",
+                        "line": 220
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 12,
+                        "durationMicroseconds": 53,
+                        "errorMessage": "",
+                        "functionName": "y",
+                        "line": 223
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 35,
+                        "durationMicroseconds": 44,
+                        "errorMessage": "",
+                        "functionName": "horizontalCenter",
+                        "line": 222
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 39,
+                        "durationMicroseconds": 42,
+                        "errorMessage": "",
+                        "functionName": "horizontalCenter",
+                        "line": 226
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 23,
+                        "durationMicroseconds": 142,
+                        "errorMessage": "Cannot generate efficient code for LoadClosure",
+                        "functionName": "model",
+                        "line": 230
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 28,
+                        "durationMicroseconds": 149,
+                        "errorMessage": "",
+                        "functionName": "color",
+                        "line": 240
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 31,
+                        "durationMicroseconds": 186,
+                        "errorMessage": "Cannot access value for name modelData",
+                        "functionName": "text",
+                        "line": 243
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 43,
+                        "durationMicroseconds": 30,
+                        "errorMessage": "",
+                        "functionName": "centerIn",
+                        "line": 242
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 36,
+                        "durationMicroseconds": 9,
+                        "errorMessage": "Type (component in M:/QT_QML_Project/Joy_Animation_App/Main.qml)::parent with type QQuickItem does not have a property hovered for writing",
+                        "functionName": "onEntered",
+                        "line": 251
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 35,
+                        "durationMicroseconds": 6,
+                        "errorMessage": "Type (component in M:/QT_QML_Project/Joy_Animation_App/Main.qml)::parent with type QQuickItem does not have a property hovered for writing",
+                        "functionName": "onExited",
+                        "line": 252
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 36,
+                        "durationMicroseconds": 106,
+                        "errorMessage": "Cannot access value for name modelData",
+                        "functionName": "onClicked",
+                        "line": 253
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 39,
+                        "durationMicroseconds": 30,
+                        "errorMessage": "",
+                        "functionName": "fill",
+                        "line": 249
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 47,
+                        "durationMicroseconds": 16,
+                        "errorMessage": "Cannot access value for name currentOpenPanel",
+                        "functionName": "when",
+                        "line": 258
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 102,
+                        "durationMicroseconds": 33,
+                        "errorMessage": "",
+                        "functionName": "target",
+                        "line": 258
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 116,
+                        "durationMicroseconds": 0,
+                        "errorMessage": "Could not find property \"y\". You may want use ID-based grouped properties here.",
+                        "functionName": "y",
+                        "line": 258
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 111,
+                        "durationMicroseconds": 36,
+                        "errorMessage": "",
+                        "functionName": "type",
+                        "line": 261
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 111,
+                        "durationMicroseconds": 29,
+                        "errorMessage": "",
+                        "functionName": "type",
+                        "line": 260
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 16,
+                        "durationMicroseconds": 34,
+                        "errorMessage": "",
+                        "functionName": "width",
+                        "line": 267
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 17,
+                        "durationMicroseconds": 148,
+                        "errorMessage": "",
+                        "functionName": "color",
+                        "line": 269
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 12,
+                        "durationMicroseconds": 31,
+                        "errorMessage": "",
+                        "functionName": "y",
+                        "line": 272
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 35,
+                        "durationMicroseconds": 43,
+                        "errorMessage": "",
+                        "functionName": "horizontalCenter",
+                        "line": 271
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 39,
+                        "durationMicroseconds": 41,
+                        "errorMessage": "",
+                        "functionName": "horizontalCenter",
+                        "line": 275
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 23,
+                        "durationMicroseconds": 191,
+                        "errorMessage": "Cannot generate efficient code for LoadClosure",
+                        "functionName": "model",
+                        "line": 279
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 28,
+                        "durationMicroseconds": 162,
+                        "errorMessage": "",
+                        "functionName": "color",
+                        "line": 290
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 31,
+                        "durationMicroseconds": 166,
+                        "errorMessage": "Cannot access value for name modelData",
+                        "functionName": "text",
+                        "line": 293
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 43,
+                        "durationMicroseconds": 27,
+                        "errorMessage": "",
+                        "functionName": "centerIn",
+                        "line": 292
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 36,
+                        "durationMicroseconds": 8,
+                        "errorMessage": "Type (component in M:/QT_QML_Project/Joy_Animation_App/Main.qml)::parent with type QQuickItem does not have a property hovered for writing",
+                        "functionName": "onEntered",
+                        "line": 301
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 35,
+                        "durationMicroseconds": 6,
+                        "errorMessage": "Type (component in M:/QT_QML_Project/Joy_Animation_App/Main.qml)::parent with type QQuickItem does not have a property hovered for writing",
+                        "functionName": "onExited",
+                        "line": 302
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 36,
+                        "durationMicroseconds": 112,
+                        "errorMessage": "Cannot access value for name modelData",
+                        "functionName": "onClicked",
+                        "line": 303
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 39,
+                        "durationMicroseconds": 25,
+                        "errorMessage": "",
+                        "functionName": "fill",
+                        "line": 299
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 47,
+                        "durationMicroseconds": 14,
+                        "errorMessage": "Cannot access value for name currentOpenPanel",
+                        "functionName": "when",
+                        "line": 308
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 104,
+                        "durationMicroseconds": 31,
+                        "errorMessage": "",
+                        "functionName": "target",
+                        "line": 308
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 120,
+                        "durationMicroseconds": 0,
+                        "errorMessage": "Could not find property \"y\". You may want use ID-based grouped properties here.",
+                        "functionName": "y",
+                        "line": 308
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 111,
+                        "durationMicroseconds": 35,
+                        "errorMessage": "",
+                        "functionName": "type",
+                        "line": 311
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 111,
+                        "durationMicroseconds": 29,
+                        "errorMessage": "",
+                        "functionName": "type",
+                        "line": 310
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 16,
+                        "durationMicroseconds": 39,
+                        "errorMessage": "",
+                        "functionName": "width",
+                        "line": 317
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 16,
+                        "durationMicroseconds": 157,
+                        "errorMessage": "",
+                        "functionName": "color",
+                        "line": 319
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 12,
+                        "durationMicroseconds": 34,
+                        "errorMessage": "",
+                        "functionName": "y",
+                        "line": 322
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 35,
+                        "durationMicroseconds": 52,
+                        "errorMessage": "",
+                        "functionName": "horizontalCenter",
+                        "line": 321
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 39,
+                        "durationMicroseconds": 44,
+                        "errorMessage": "",
+                        "functionName": "horizontalCenter",
+                        "line": 325
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 23,
+                        "durationMicroseconds": 179,
+                        "errorMessage": "Cannot generate efficient code for LoadClosure",
+                        "functionName": "model",
+                        "line": 329
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 28,
+                        "durationMicroseconds": 125,
+                        "errorMessage": "",
+                        "functionName": "color",
+                        "line": 339
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 31,
+                        "durationMicroseconds": 169,
+                        "errorMessage": "Cannot access value for name modelData",
+                        "functionName": "text",
+                        "line": 342
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 43,
+                        "durationMicroseconds": 31,
+                        "errorMessage": "",
+                        "functionName": "centerIn",
+                        "line": 341
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 36,
+                        "durationMicroseconds": 9,
+                        "errorMessage": "Type (component in M:/QT_QML_Project/Joy_Animation_App/Main.qml)::parent with type QQuickItem does not have a property hovered for writing",
+                        "functionName": "onEntered",
+                        "line": 350
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 35,
+                        "durationMicroseconds": 6,
+                        "errorMessage": "Type (component in M:/QT_QML_Project/Joy_Animation_App/Main.qml)::parent with type QQuickItem does not have a property hovered for writing",
+                        "functionName": "onExited",
+                        "line": 351
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 36,
+                        "durationMicroseconds": 167,
+                        "errorMessage": "Cannot access value for name modelData",
+                        "functionName": "onClicked",
+                        "line": 352
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 39,
+                        "durationMicroseconds": 28,
+                        "errorMessage": "",
+                        "functionName": "fill",
+                        "line": 348
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 47,
+                        "durationMicroseconds": 14,
+                        "errorMessage": "Cannot access value for name currentOpenPanel",
+                        "functionName": "when",
+                        "line": 357
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 103,
+                        "durationMicroseconds": 33,
+                        "errorMessage": "",
+                        "functionName": "target",
+                        "line": 357
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 118,
+                        "durationMicroseconds": 0,
+                        "errorMessage": "Could not find property \"y\". You may want use ID-based grouped properties here.",
+                        "functionName": "y",
+                        "line": 357
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 111,
+                        "durationMicroseconds": 34,
+                        "errorMessage": "",
+                        "functionName": "type",
+                        "line": 360
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 111,
+                        "durationMicroseconds": 30,
+                        "errorMessage": "",
+                        "functionName": "type",
+                        "line": 359
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 16,
+                        "durationMicroseconds": 33,
+                        "errorMessage": "",
+                        "functionName": "width",
+                        "line": 366
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 16,
+                        "durationMicroseconds": 144,
+                        "errorMessage": "",
+                        "functionName": "color",
+                        "line": 368
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 12,
+                        "durationMicroseconds": 31,
+                        "errorMessage": "",
+                        "functionName": "y",
+                        "line": 371
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 35,
+                        "durationMicroseconds": 43,
+                        "errorMessage": "",
+                        "functionName": "horizontalCenter",
+                        "line": 370
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 39,
+                        "durationMicroseconds": 42,
+                        "errorMessage": "",
+                        "functionName": "horizontalCenter",
+                        "line": 374
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 23,
+                        "durationMicroseconds": 22,
+                        "errorMessage": "Cannot retrieve a non-object type by ID: brightnessCustomSlider",
+                        "functionName": "text",
+                        "line": 379
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 38,
+                        "durationMicroseconds": 35,
+                        "errorMessage": "",
+                        "functionName": "horizontalAlignment",
+                        "line": 382
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 33,
+                        "durationMicroseconds": 0,
+                        "errorMessage": "Could not find signal \"valueChanged\".",
+                        "functionName": "onValueChanged",
+                        "line": 391
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 35,
+                        "durationMicroseconds": 0,
+                        "errorMessage": "Could not find signal \"pressedChanged\".",
+                        "functionName": "onPressedChanged",
+                        "line": 392
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 23,
+                        "durationMicroseconds": 34,
+                        "errorMessage": "Cannot retrieve a non-object type by ID: gammaCustomSlider",
+                        "functionName": "text",
+                        "line": 396
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 38,
+                        "durationMicroseconds": 62,
+                        "errorMessage": "",
+                        "functionName": "horizontalAlignment",
+                        "line": 399
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 33,
+                        "durationMicroseconds": 0,
+                        "errorMessage": "Could not find signal \"valueChanged\".",
+                        "functionName": "onValueChanged",
+                        "line": 408
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 35,
+                        "durationMicroseconds": 0,
+                        "errorMessage": "Could not find signal \"pressedChanged\".",
+                        "functionName": "onPressedChanged",
+                        "line": 409
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 23,
+                        "durationMicroseconds": 22,
+                        "errorMessage": "Cannot retrieve a non-object type by ID: contrastCustomSlider",
+                        "functionName": "text",
+                        "line": 413
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 38,
+                        "durationMicroseconds": 39,
+                        "errorMessage": "",
+                        "functionName": "horizontalAlignment",
+                        "line": 416
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 33,
+                        "durationMicroseconds": 0,
+                        "errorMessage": "Could not find signal \"valueChanged\".",
+                        "functionName": "onValueChanged",
+                        "line": 425
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 35,
+                        "durationMicroseconds": 0,
+                        "errorMessage": "Could not find signal \"pressedChanged\".",
+                        "functionName": "onPressedChanged",
+                        "line": 426
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 23,
+                        "durationMicroseconds": 19,
+                        "errorMessage": "Cannot retrieve a non-object type by ID: noiseCustomSlider",
+                        "functionName": "text",
+                        "line": 430
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 38,
+                        "durationMicroseconds": 45,
+                        "errorMessage": "",
+                        "functionName": "horizontalAlignment",
+                        "line": 433
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 33,
+                        "durationMicroseconds": 0,
+                        "errorMessage": "Could not find signal \"valueChanged\".",
+                        "functionName": "onValueChanged",
+                        "line": 442
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 35,
+                        "durationMicroseconds": 0,
+                        "errorMessage": "Could not find signal \"pressedChanged\".",
+                        "functionName": "onPressedChanged",
+                        "line": 443
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 23,
+                        "durationMicroseconds": 18,
+                        "errorMessage": "Cannot retrieve a non-object type by ID: vignetteCustomSlider",
+                        "functionName": "text",
+                        "line": 447
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 38,
+                        "durationMicroseconds": 32,
+                        "errorMessage": "",
+                        "functionName": "horizontalAlignment",
+                        "line": 450
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 33,
+                        "durationMicroseconds": 0,
+                        "errorMessage": "Could not find signal \"valueChanged\".",
+                        "functionName": "onValueChanged",
+                        "line": 459
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 35,
+                        "durationMicroseconds": 0,
+                        "errorMessage": "Could not find signal \"pressedChanged\".",
+                        "functionName": "onPressedChanged",
+                        "line": 460
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 47,
+                        "durationMicroseconds": 20,
+                        "errorMessage": "Cannot access value for name currentOpenPanel",
+                        "functionName": "when",
+                        "line": 464
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 108,
+                        "durationMicroseconds": 42,
+                        "errorMessage": "",
+                        "functionName": "target",
+                        "line": 464
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 128,
+                        "durationMicroseconds": 0,
+                        "errorMessage": "Could not find property \"y\". You may want use ID-based grouped properties here.",
+                        "functionName": "y",
+                        "line": 464
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 111,
+                        "durationMicroseconds": 32,
+                        "errorMessage": "",
+                        "functionName": "type",
+                        "line": 467
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 111,
+                        "durationMicroseconds": 33,
+                        "errorMessage": "",
+                        "functionName": "type",
+                        "line": 466
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 16,
+                        "durationMicroseconds": 36,
+                        "errorMessage": "",
+                        "functionName": "width",
+                        "line": 473
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 16,
+                        "durationMicroseconds": 158,
+                        "errorMessage": "",
+                        "functionName": "color",
+                        "line": 475
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 12,
+                        "durationMicroseconds": 34,
+                        "errorMessage": "",
+                        "functionName": "y",
+                        "line": 478
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 35,
+                        "durationMicroseconds": 44,
+                        "errorMessage": "",
+                        "functionName": "horizontalCenter",
+                        "line": 477
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 25,
+                        "durationMicroseconds": 581,
+                        "errorMessage": "Cannot generate efficient code for reading from a value that's potentially affected by side effects",
+                        "functionName": "onAccepted",
+                        "line": 488
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 39,
+                        "durationMicroseconds": 54,
+                        "errorMessage": "",
+                        "functionName": "horizontalCenter",
+                        "line": 500
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 101,
+                        "durationMicroseconds": 91,
+                        "errorMessage": "",
+                        "functionName": "onClicked",
+                        "line": 503
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 77,
+                        "durationMicroseconds": 34,
+                        "errorMessage": "",
+                        "functionName": "group",
+                        "line": 503
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 101,
+                        "durationMicroseconds": 82,
+                        "errorMessage": "",
+                        "functionName": "onClicked",
+                        "line": 504
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 77,
+                        "durationMicroseconds": 31,
+                        "errorMessage": "",
+                        "functionName": "group",
+                        "line": 504
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 100,
+                        "durationMicroseconds": 71,
+                        "errorMessage": "",
+                        "functionName": "onClicked",
+                        "line": 505
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 76,
+                        "durationMicroseconds": 35,
+                        "errorMessage": "",
+                        "functionName": "group",
+                        "line": 505
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 26,
+                        "durationMicroseconds": 166,
+                        "errorMessage": "",
+                        "functionName": "visible",
+                        "line": 507
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 23,
+                        "durationMicroseconds": 69,
+                        "errorMessage": "Cannot retrieve a non-object type by ID: thicknessCustomSlider",
+                        "functionName": "text",
+                        "line": 509
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 38,
+                        "durationMicroseconds": 45,
+                        "errorMessage": "",
+                        "functionName": "horizontalAlignment",
+                        "line": 512
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 35,
+                        "durationMicroseconds": 0,
+                        "errorMessage": "Could not find property \"visible\".",
+                        "functionName": "visible",
+                        "line": 514
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 26,
+                        "durationMicroseconds": 46,
+                        "errorMessage": "",
+                        "functionName": "visible",
+                        "line": 516
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 23,
+                        "durationMicroseconds": 22,
+                        "errorMessage": "Cannot retrieve a non-object type by ID: innerThicknessCustomSlider",
+                        "functionName": "text",
+                        "line": 518
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 38,
+                        "durationMicroseconds": 41,
+                        "errorMessage": "",
+                        "functionName": "horizontalAlignment",
+                        "line": 521
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 35,
+                        "durationMicroseconds": 0,
+                        "errorMessage": "Could not find property \"visible\".",
+                        "functionName": "visible",
+                        "line": 523
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 26,
+                        "durationMicroseconds": 41,
+                        "errorMessage": "",
+                        "functionName": "visible",
+                        "line": 525
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 23,
+                        "durationMicroseconds": 18,
+                        "errorMessage": "Cannot retrieve a non-object type by ID: gapCustomSlider",
+                        "functionName": "text",
+                        "line": 527
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 38,
+                        "durationMicroseconds": 32,
+                        "errorMessage": "",
+                        "functionName": "horizontalAlignment",
+                        "line": 530
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 35,
+                        "durationMicroseconds": 0,
+                        "errorMessage": "Could not find property \"visible\".",
+                        "functionName": "visible",
+                        "line": 532
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 26,
+                        "durationMicroseconds": 145,
+                        "errorMessage": "",
+                        "functionName": "visible",
+                        "line": 534
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 24,
+                        "durationMicroseconds": 276,
+                        "errorMessage": "Cannot generate efficient code for internal conversion with incompatible or ambiguous types: call to method rgba, returning QVariant -> QColor stored as QVariant",
+                        "functionName": "color",
+                        "line": 538
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 26,
+                        "durationMicroseconds": 119,
+                        "errorMessage": "",
+                        "functionName": "visible",
+                        "line": 545
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 24,
+                        "durationMicroseconds": 147,
+                        "errorMessage": "",
+                        "functionName": "color",
+                        "line": 548
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 39,
+                        "durationMicroseconds": 28,
+                        "errorMessage": "",
+                        "functionName": "centerIn",
+                        "line": 551
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 32,
+                        "durationMicroseconds": 10,
+                        "errorMessage": "Type (component in M:/QT_QML_Project/Joy_Animation_App/Main.qml)::parent with type QQuickItem does not have a property hovered for writing",
+                        "functionName": "onEntered",
+                        "line": 559
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 31,
+                        "durationMicroseconds": 12,
+                        "errorMessage": "Type (component in M:/QT_QML_Project/Joy_Animation_App/Main.qml)::parent with type QQuickItem does not have a property hovered for writing",
+                        "functionName": "onExited",
+                        "line": 560
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 32,
+                        "durationMicroseconds": 77,
+                        "errorMessage": "",
+                        "functionName": "onClicked",
+                        "line": 561
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 35,
+                        "durationMicroseconds": 25,
+                        "errorMessage": "",
+                        "functionName": "fill",
+                        "line": 557
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 24,
+                        "durationMicroseconds": 133,
+                        "errorMessage": "",
+                        "functionName": "color",
+                        "line": 574
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 39,
+                        "durationMicroseconds": 41,
+                        "errorMessage": "",
+                        "functionName": "centerIn",
+                        "line": 577
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 32,
+                        "durationMicroseconds": 8,
+                        "errorMessage": "Type (component in M:/QT_QML_Project/Joy_Animation_App/Main.qml)::parent with type QQuickItem does not have a property hovered for writing",
+                        "functionName": "onEntered",
+                        "line": 585
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 31,
+                        "durationMicroseconds": 6,
+                        "errorMessage": "Type (component in M:/QT_QML_Project/Joy_Animation_App/Main.qml)::parent with type QQuickItem does not have a property hovered for writing",
+                        "functionName": "onExited",
+                        "line": 586
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 32,
+                        "durationMicroseconds": 71,
+                        "errorMessage": "Cannot retrieve a non-object type by ID: thicknessCustomSlider",
+                        "functionName": "onClicked",
+                        "line": 587
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 35,
+                        "durationMicroseconds": 71,
+                        "errorMessage": "",
+                        "functionName": "fill",
+                        "line": 583
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 47,
+                        "durationMicroseconds": 16,
+                        "errorMessage": "Cannot access value for name currentOpenPanel",
+                        "functionName": "when",
+                        "line": 593
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 103,
+                        "durationMicroseconds": 32,
+                        "errorMessage": "",
+                        "functionName": "target",
+                        "line": 593
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 118,
+                        "durationMicroseconds": 0,
+                        "errorMessage": "Could not find property \"y\". You may want use ID-based grouped properties here.",
+                        "functionName": "y",
+                        "line": 593
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 111,
+                        "durationMicroseconds": 36,
+                        "errorMessage": "",
+                        "functionName": "type",
+                        "line": 596
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 111,
+                        "durationMicroseconds": 29,
+                        "errorMessage": "",
+                        "functionName": "type",
+                        "line": 595
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 16,
+                        "durationMicroseconds": 40,
+                        "errorMessage": "",
+                        "functionName": "width",
+                        "line": 602
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 16,
+                        "durationMicroseconds": 143,
+                        "errorMessage": "",
+                        "functionName": "color",
+                        "line": 604
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 12,
+                        "durationMicroseconds": 37,
+                        "errorMessage": "",
+                        "functionName": "y",
+                        "line": 607
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 35,
+                        "durationMicroseconds": 42,
+                        "errorMessage": "",
+                        "functionName": "horizontalCenter",
+                        "line": 606
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 39,
+                        "durationMicroseconds": 42,
+                        "errorMessage": "",
+                        "functionName": "horizontalCenter",
+                        "line": 610
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 23,
+                        "durationMicroseconds": 21,
+                        "errorMessage": "Cannot retrieve a non-object type by ID: skewnessCustomSlider",
+                        "functionName": "text",
+                        "line": 615
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 38,
+                        "durationMicroseconds": 32,
+                        "errorMessage": "",
+                        "functionName": "horizontalAlignment",
+                        "line": 618
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 33,
+                        "durationMicroseconds": 0,
+                        "errorMessage": "Could not find signal \"valueChanged\".",
+                        "functionName": "onValueChanged",
+                        "line": 621
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 35,
+                        "durationMicroseconds": 0,
+                        "errorMessage": "Could not find signal \"pressedChanged\".",
+                        "functionName": "onPressedChanged",
+                        "line": 622
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 47,
+                        "durationMicroseconds": 14,
+                        "errorMessage": "Cannot access value for name currentOpenPanel",
+                        "functionName": "when",
+                        "line": 625
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 102,
+                        "durationMicroseconds": 37,
+                        "errorMessage": "",
+                        "functionName": "target",
+                        "line": 625
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 116,
+                        "durationMicroseconds": 0,
+                        "errorMessage": "Could not find property \"y\". You may want use ID-based grouped properties here.",
+                        "functionName": "y",
+                        "line": 625
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 111,
+                        "durationMicroseconds": 72,
+                        "errorMessage": "",
+                        "functionName": "type",
+                        "line": 628
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 111,
+                        "durationMicroseconds": 40,
+                        "errorMessage": "",
+                        "functionName": "type",
+                        "line": 627
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 16,
+                        "durationMicroseconds": 84,
+                        "errorMessage": "",
+                        "functionName": "width",
+                        "line": 634
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 16,
+                        "durationMicroseconds": 173,
+                        "errorMessage": "",
+                        "functionName": "color",
+                        "line": 636
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 12,
+                        "durationMicroseconds": 36,
+                        "errorMessage": "",
+                        "functionName": "y",
+                        "line": 639
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 35,
+                        "durationMicroseconds": 44,
+                        "errorMessage": "",
+                        "functionName": "horizontalCenter",
+                        "line": 638
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 39,
+                        "durationMicroseconds": 91,
+                        "errorMessage": "",
+                        "functionName": "horizontalCenter",
+                        "line": 645
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 23,
+                        "durationMicroseconds": 32,
+                        "errorMessage": "Cannot retrieve a non-object type by ID: redCustomSlider",
+                        "functionName": "text",
+                        "line": 650
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 38,
+                        "durationMicroseconds": 36,
+                        "errorMessage": "",
+                        "functionName": "horizontalAlignment",
+                        "line": 653
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 33,
+                        "durationMicroseconds": 0,
+                        "errorMessage": "Could not find signal \"valueChanged\".",
+                        "functionName": "onValueChanged",
+                        "line": 656
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 35,
+                        "durationMicroseconds": 0,
+                        "errorMessage": "Could not find signal \"pressedChanged\".",
+                        "functionName": "onPressedChanged",
+                        "line": 657
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 23,
+                        "durationMicroseconds": 20,
+                        "errorMessage": "Cannot retrieve a non-object type by ID: greenCustomSlider",
+                        "functionName": "text",
+                        "line": 661
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 38,
+                        "durationMicroseconds": 33,
+                        "errorMessage": "",
+                        "functionName": "horizontalAlignment",
+                        "line": 664
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 33,
+                        "durationMicroseconds": 0,
+                        "errorMessage": "Could not find signal \"valueChanged\".",
+                        "functionName": "onValueChanged",
+                        "line": 667
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 35,
+                        "durationMicroseconds": 0,
+                        "errorMessage": "Could not find signal \"pressedChanged\".",
+                        "functionName": "onPressedChanged",
+                        "line": 668
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 23,
+                        "durationMicroseconds": 20,
+                        "errorMessage": "Cannot retrieve a non-object type by ID: blueCustomSlider",
+                        "functionName": "text",
+                        "line": 672
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 38,
+                        "durationMicroseconds": 34,
+                        "errorMessage": "",
+                        "functionName": "horizontalAlignment",
+                        "line": 675
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 33,
+                        "durationMicroseconds": 0,
+                        "errorMessage": "Could not find signal \"valueChanged\".",
+                        "functionName": "onValueChanged",
+                        "line": 678
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 35,
+                        "durationMicroseconds": 0,
+                        "errorMessage": "Could not find signal \"pressedChanged\".",
+                        "functionName": "onPressedChanged",
+                        "line": 679
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 24,
+                        "durationMicroseconds": 271,
+                        "errorMessage": "",
+                        "functionName": "color",
+                        "line": 687
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 39,
+                        "durationMicroseconds": 43,
+                        "errorMessage": "",
+                        "functionName": "centerIn",
+                        "line": 690
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 32,
+                        "durationMicroseconds": 11,
+                        "errorMessage": "Type (component in M:/QT_QML_Project/Joy_Animation_App/Main.qml)::parent with type QQuickItem does not have a property hovered for writing",
+                        "functionName": "onEntered",
+                        "line": 698
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 31,
+                        "durationMicroseconds": 7,
+                        "errorMessage": "Type (component in M:/QT_QML_Project/Joy_Animation_App/Main.qml)::parent with type QQuickItem does not have a property hovered for writing",
+                        "functionName": "onExited",
+                        "line": 699
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 32,
+                        "durationMicroseconds": 198,
+                        "errorMessage": "",
+                        "functionName": "onClicked",
+                        "line": 700
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 35,
+                        "durationMicroseconds": 27,
+                        "errorMessage": "",
+                        "functionName": "fill",
+                        "line": 696
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 47,
+                        "durationMicroseconds": 16,
+                        "errorMessage": "Cannot access value for name currentOpenPanel",
+                        "functionName": "when",
+                        "line": 707
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 101,
+                        "durationMicroseconds": 32,
+                        "errorMessage": "",
+                        "functionName": "target",
+                        "line": 707
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 114,
+                        "durationMicroseconds": 0,
+                        "errorMessage": "Could not find property \"y\". You may want use ID-based grouped properties here.",
+                        "functionName": "y",
+                        "line": 707
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 111,
+                        "durationMicroseconds": 45,
+                        "errorMessage": "",
+                        "functionName": "type",
+                        "line": 710
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 111,
+                        "durationMicroseconds": 31,
+                        "errorMessage": "",
+                        "functionName": "type",
+                        "line": 709
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 25,
+                        "durationMicroseconds": 51,
+                        "errorMessage": "",
+                        "functionName": "bottom",
+                        "line": 718
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 24,
+                        "durationMicroseconds": 57,
+                        "errorMessage": "",
+                        "functionName": "right",
+                        "line": 719
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 20,
+                        "durationMicroseconds": 171,
+                        "errorMessage": "Cannot generate efficient code for internal conversion with incompatible or ambiguous types: call to method rgba, returning QVariant -> QColor stored as QVariant",
+                        "functionName": "color",
+                        "line": 724
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 16,
+                        "durationMicroseconds": 175,
+                        "errorMessage": "",
+                        "functionName": "color",
+                        "line": 738
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 41,
+                        "durationMicroseconds": 677,
+                        "errorMessage": "Cannot generate efficient code for LoadClosure",
+                        "functionName": "panelButtonsModel",
+                        "line": 741
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 42,
+                        "durationMicroseconds": 1233,
+                        "errorMessage": "Cannot generate efficient code for LoadClosure",
+                        "functionName": "filterButtonsModel",
+                        "line": 752
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 22,
+                        "durationMicroseconds": 58,
+                        "errorMessage": "",
+                        "functionName": "top",
+                        "line": 734
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 23,
+                        "durationMicroseconds": 44,
+                        "errorMessage": "",
+                        "functionName": "left",
+                        "line": 735
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 25,
+                        "durationMicroseconds": 42,
+                        "errorMessage": "",
+                        "functionName": "bottom",
+                        "line": 736
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 39,
+                        "durationMicroseconds": 55,
+                        "errorMessage": "",
+                        "functionName": "horizontalCenter",
+                        "line": 774
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 26,
+                        "durationMicroseconds": 45,
+                        "errorMessage": "",
+                        "functionName": "top",
+                        "line": 775
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 24,
+                        "durationMicroseconds": 202,
+                        "errorMessage": "",
+                        "functionName": "color",
+                        "line": 782
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 38,
+                        "durationMicroseconds": 49,
+                        "errorMessage": "",
+                        "functionName": "horizontalAlignment",
+                        "line": 784
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 35,
+                        "durationMicroseconds": 44,
+                        "errorMessage": "",
+                        "functionName": "alignment",
+                        "line": 794
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 28,
+                        "durationMicroseconds": 39,
+                        "errorMessage": "",
+                        "functionName": "model",
+                        "line": 799
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 32,
+                        "durationMicroseconds": 147,
+                        "errorMessage": "",
+                        "functionName": "color",
+                        "line": 805
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 64,
+                        "durationMicroseconds": 152,
+                        "errorMessage": "Cannot access value for name modelData",
+                        "functionName": "text",
+                        "line": 806
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 50,
+                        "durationMicroseconds": 33,
+                        "errorMessage": "",
+                        "functionName": "centerIn",
+                        "line": 806
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 90,
+                        "durationMicroseconds": 10,
+                        "errorMessage": "Type (component in M:/QT_QML_Project/Joy_Animation_App/Main.qml)::parent with type QQuickItem does not have a property hovered for writing",
+                        "functionName": "onEntered",
+                        "line": 807
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 123,
+                        "durationMicroseconds": 6,
+                        "errorMessage": "Type (component in M:/QT_QML_Project/Joy_Animation_App/Main.qml)::parent with type QQuickItem does not have a property hovered for writing",
+                        "functionName": "onExited",
+                        "line": 807
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 158,
+                        "durationMicroseconds": 108,
+                        "errorMessage": "Cannot access value for name modelData",
+                        "functionName": "onClicked",
+                        "line": 807
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 51,
+                        "durationMicroseconds": 28,
+                        "errorMessage": "",
+                        "functionName": "fill",
+                        "line": 807
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 24,
+                        "durationMicroseconds": 166,
+                        "errorMessage": "",
+                        "functionName": "color",
+                        "line": 815
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 38,
+                        "durationMicroseconds": 38,
+                        "errorMessage": "",
+                        "functionName": "horizontalAlignment",
+                        "line": 817
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 35,
+                        "durationMicroseconds": 45,
+                        "errorMessage": "",
+                        "functionName": "alignment",
+                        "line": 828
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 28,
+                        "durationMicroseconds": 111,
+                        "errorMessage": "",
+                        "functionName": "model",
+                        "line": 833
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 32,
+                        "durationMicroseconds": 145,
+                        "errorMessage": "",
+                        "functionName": "color",
+                        "line": 839
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 64,
+                        "durationMicroseconds": 163,
+                        "errorMessage": "Cannot access value for name modelData",
+                        "functionName": "text",
+                        "line": 840
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 50,
+                        "durationMicroseconds": 27,
+                        "errorMessage": "",
+                        "functionName": "centerIn",
+                        "line": 840
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 90,
+                        "durationMicroseconds": 12,
+                        "errorMessage": "Type (component in M:/QT_QML_Project/Joy_Animation_App/Main.qml)::parent with type QQuickItem does not have a property hovered for writing",
+                        "functionName": "onEntered",
+                        "line": 841
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 123,
+                        "durationMicroseconds": 7,
+                        "errorMessage": "Type (component in M:/QT_QML_Project/Joy_Animation_App/Main.qml)::parent with type QQuickItem does not have a property hovered for writing",
+                        "functionName": "onExited",
+                        "line": 841
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 158,
+                        "durationMicroseconds": 120,
+                        "errorMessage": "Cannot access value for name modelData",
+                        "functionName": "onClicked",
+                        "line": 841
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 51,
+                        "durationMicroseconds": 39,
+                        "errorMessage": "",
+                        "functionName": "fill",
+                        "line": 841
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 17,
+                        "durationMicroseconds": 73,
+                        "errorMessage": "",
+                        "functionName": "height",
+                        "line": 861
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 16,
+                        "durationMicroseconds": 57,
+                        "errorMessage": "",
+                        "functionName": "width",
+                        "line": 862
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 24,
+                        "durationMicroseconds": 100,
+                        "errorMessage": "",
+                        "functionName": "right",
+                        "line": 855
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 22,
+                        "durationMicroseconds": 46,
+                        "errorMessage": "",
+                        "functionName": "top",
+                        "line": 856
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 23,
+                        "durationMicroseconds": 44,
+                        "errorMessage": "",
+                        "functionName": "left",
+                        "line": 857
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 25,
+                        "durationMicroseconds": 44,
+                        "errorMessage": "",
+                        "functionName": "bottom",
+                        "line": 858
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 20,
+                        "durationMicroseconds": 57,
+                        "errorMessage": "",
+                        "functionName": "width",
+                        "line": 867
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 21,
+                        "durationMicroseconds": 51,
+                        "errorMessage": "",
+                        "functionName": "height",
+                        "line": 868
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 23,
+                        "durationMicroseconds": 34,
+                        "errorMessage": "",
+                        "functionName": "fillMode",
+                        "line": 869
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 21,
+                        "durationMicroseconds": 78,
+                        "errorMessage": "",
+                        "functionName": "source",
+                        "line": 870
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 31,
+                        "durationMicroseconds": 24,
+                        "errorMessage": "",
+                        "functionName": "centerIn",
+                        "line": 866
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 25,
+                        "durationMicroseconds": 16,
+                        "errorMessage": "Cannot access value for name cropModeActive",
+                        "functionName": "visible",
+                        "line": 878
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 30,
+                        "durationMicroseconds": 42,
+                        "errorMessage": "",
+                        "functionName": "fill",
+                        "line": 876
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 23,
+                        "durationMicroseconds": 56,
+                        "errorMessage": "",
+                        "functionName": "x",
+                        "line": 884
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 23,
+                        "durationMicroseconds": 52,
+                        "errorMessage": "",
+                        "functionName": "y",
+                        "line": 885
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 27,
+                        "durationMicroseconds": 52,
+                        "errorMessage": "",
+                        "functionName": "width",
+                        "line": 886
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 28,
+                        "durationMicroseconds": 59,
+                        "errorMessage": "",
+                        "functionName": "height",
+                        "line": 887
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 37,
+                        "durationMicroseconds": 103,
+                        "errorMessage": "",
+                        "functionName": "cursorShape",
+                        "line": 895
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 38,
+                        "durationMicroseconds": 23,
+                        "errorMessage": "",
+                        "functionName": "fill",
+                        "line": 894
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 37,
+                        "durationMicroseconds": 82,
+                        "errorMessage": "",
+                        "functionName": "target",
+                        "line": 896
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 39,
+                        "durationMicroseconds": 69,
+                        "errorMessage": "",
+                        "functionName": "maximumX",
+                        "line": 899
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 39,
+                        "durationMicroseconds": 69,
+                        "errorMessage": "",
+                        "functionName": "maximumY",
+                        "line": 900
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 31,
+                        "durationMicroseconds": 36,
+                        "errorMessage": "Cannot access value for name cropBox",
+                        "functionName": "x",
+                        "line": 908
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 36,
+                        "durationMicroseconds": 13,
+                        "errorMessage": "Cannot access value for name cropBox",
+                        "functionName": "height",
+                        "line": 910
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 31,
+                        "durationMicroseconds": 28,
+                        "errorMessage": "Cannot access value for name cropBox",
+                        "functionName": "y",
+                        "line": 918
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 35,
+                        "durationMicroseconds": 13,
+                        "errorMessage": "Cannot access value for name cropBox",
+                        "functionName": "width",
+                        "line": 919
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 31,
+                        "durationMicroseconds": 511,
+                        "errorMessage": "Cannot generate efficient code for storing an array in a non-sequence type",
+                        "functionName": "model",
+                        "line": 927
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 54,
+                        "durationMicroseconds": 105,
+                        "errorMessage": "Cannot access value for name cropBox",
+                        "functionName": "horizontalCenter",
+                        "line": 938
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 52,
+                        "durationMicroseconds": 104,
+                        "errorMessage": "Cannot access value for name cropBox",
+                        "functionName": "verticalCenter",
+                        "line": 939
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 45,
+                        "durationMicroseconds": 104,
+                        "errorMessage": "Cannot access value for name modelData",
+                        "functionName": "cursorShape",
+                        "line": 944
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 58,
+                        "durationMicroseconds": 98,
+                        "errorMessage": "",
+                        "functionName": "dragStart",
+                        "line": 945
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 57,
+                        "durationMicroseconds": 162,
+                        "errorMessage": "",
+                        "functionName": "boxStart",
+                        "line": 946
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 55,
+                        "durationMicroseconds": 83,
+                        "errorMessage": "",
+                        "functionName": "boxSize",
+                        "line": 947
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 43,
+                        "durationMicroseconds": 104,
+                        "errorMessage": "Cannot access value for name cropOverlay",
+                        "functionName": "onPressed",
+                        "line": 949
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 51,
+                        "durationMicroseconds": 694,
+                        "errorMessage": "Cannot access value for name cropOverlay",
+                        "functionName": "onPositionChanged",
+                        "line": 955
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 46,
+                        "durationMicroseconds": 34,
+                        "errorMessage": "",
+                        "functionName": "fill",
+                        "line": 942
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 36,
+                        "durationMicroseconds": 54,
+                        "errorMessage": "",
+                        "functionName": "bottom",
+                        "line": 989
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 46,
+                        "durationMicroseconds": 44,
+                        "errorMessage": "",
+                        "functionName": "horizontalCenter",
+                        "line": 990
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 31,
+                        "durationMicroseconds": 184,
+                        "errorMessage": "",
+                        "functionName": "color",
+                        "line": 1001
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 46,
+                        "durationMicroseconds": 27,
+                        "errorMessage": "",
+                        "functionName": "centerIn",
+                        "line": 1004
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 39,
+                        "durationMicroseconds": 12,
+                        "errorMessage": "Type (component in M:/QT_QML_Project/Joy_Animation_App/Main.qml)::parent with type QQuickItem does not have a property hovered for writing",
+                        "functionName": "onEntered",
+                        "line": 1012
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 38,
+                        "durationMicroseconds": 7,
+                        "errorMessage": "Type (component in M:/QT_QML_Project/Joy_Animation_App/Main.qml)::parent with type QQuickItem does not have a property hovered for writing",
+                        "functionName": "onExited",
+                        "line": 1013
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 39,
+                        "durationMicroseconds": 131,
+                        "errorMessage": "Cannot find name cropModeActive",
+                        "functionName": "onClicked",
+                        "line": 1014
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 42,
+                        "durationMicroseconds": 28,
+                        "errorMessage": "",
+                        "functionName": "fill",
+                        "line": 1010
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 27,
+                        "durationMicroseconds": 136,
+                        "errorMessage": "",
+                        "functionName": "color",
+                        "line": 1042
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 42,
+                        "durationMicroseconds": 27,
+                        "errorMessage": "",
+                        "functionName": "centerIn",
+                        "line": 1045
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 35,
+                        "durationMicroseconds": 9,
+                        "errorMessage": "Type (component in M:/QT_QML_Project/Joy_Animation_App/Main.qml)::parent with type QQuickItem does not have a property hovered for writing",
+                        "functionName": "onEntered",
+                        "line": 1053
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 34,
+                        "durationMicroseconds": 6,
+                        "errorMessage": "Type (component in M:/QT_QML_Project/Joy_Animation_App/Main.qml)::parent with type QQuickItem does not have a property hovered for writing",
+                        "functionName": "onExited",
+                        "line": 1054
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 35,
+                        "durationMicroseconds": 19,
+                        "errorMessage": "Cannot find name cropModeActive",
+                        "functionName": "onClicked",
+                        "line": 1055
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 38,
+                        "durationMicroseconds": 30,
+                        "errorMessage": "",
+                        "functionName": "fill",
+                        "line": 1051
+                    }
+                ],
+                "filePath": "M:/QT_QML_Project/Joy_Animation_App/Main.qml"
+            }
+        ],
+        "moduleId": "Joy_Animation_App(appJoy_Animation_App)"
+    }
+]

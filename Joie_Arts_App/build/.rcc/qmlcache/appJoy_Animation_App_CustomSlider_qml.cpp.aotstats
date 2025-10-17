@@ -1,0 +1,76 @@
+[
+    {
+        "moduleFiles": [
+            {
+                "entries": [
+                    {
+                        "codegenSuccessful": false,
+                        "column": 12,
+                        "durationMicroseconds": 93,
+                        "errorMessage": "Cannot access value for name control",
+                        "functionName": "x",
+                        "line": 8
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 12,
+                        "durationMicroseconds": 44,
+                        "errorMessage": "Cannot access value for name control",
+                        "functionName": "y",
+                        "line": 9
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 16,
+                        "durationMicroseconds": 9,
+                        "errorMessage": "Cannot access value for name control",
+                        "functionName": "width",
+                        "line": 12
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 17,
+                        "durationMicroseconds": 3,
+                        "errorMessage": "Cannot access value for name implicitHeight",
+                        "functionName": "height",
+                        "line": 13
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 20,
+                        "durationMicroseconds": 15,
+                        "errorMessage": "Cannot access value for name control",
+                        "functionName": "width",
+                        "line": 18
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 21,
+                        "durationMicroseconds": 4,
+                        "errorMessage": "Cannot access value for name parent",
+                        "functionName": "height",
+                        "line": 19
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 12,
+                        "durationMicroseconds": 33,
+                        "errorMessage": "Cannot access value for name control",
+                        "functionName": "x",
+                        "line": 27
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 12,
+                        "durationMicroseconds": 25,
+                        "errorMessage": "Cannot access value for name control",
+                        "functionName": "y",
+                        "line": 28
+                    }
+                ],
+                "filePath": "M:/QT_QML_Project/Joy_Animation_App/CustomSlider.qml"
+            }
+        ],
+        "moduleId": "Joy_Animation_App(appJoy_Animation_App)"
+    }
+]

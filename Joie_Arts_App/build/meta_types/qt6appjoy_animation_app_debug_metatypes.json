@@ -1,0 +1,431 @@
+[
+    {
+        "classes": [
+            {
+                "classInfos": [
+                    {
+                        "name": "QML.Element",
+                        "value": "auto"
+                    }
+                ],
+                "className": "Filters_Class",
+                "lineNumber": 36,
+                "methods": [
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "path",
+                                "type": "QString"
+                            }
+                        ],
+                        "index": 1,
+                        "name": "loadImage",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "path",
+                                "type": "QString"
+                            }
+                        ],
+                        "index": 2,
+                        "name": "loadSecondImage",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "path",
+                                "type": "QString"
+                            }
+                        ],
+                        "index": 3,
+                        "name": "saveImage",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 4,
+                        "name": "applyGrayscale",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 5,
+                        "name": "applyBnW",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 6,
+                        "name": "applyInvert",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "x",
+                                "type": "int"
+                            }
+                        ],
+                        "index": 7,
+                        "name": "applyFlipFilter",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "x",
+                                "type": "float"
+                            }
+                        ],
+                        "index": 8,
+                        "name": "applyDarkenOrLighten",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "x",
+                                "type": "int"
+                            }
+                        ],
+                        "index": 9,
+                        "name": "applyRotatefilter",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 10,
+                        "name": "applyResizeFilter",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 11,
+                        "name": "applyInfraRedFilter",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 12,
+                        "name": "applyCropFilter",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 13,
+                        "name": "applyEdgeDetetction",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 14,
+                        "name": "applyBlur",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 15,
+                        "name": "applyTVstatic",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 16,
+                        "name": "applyOilFilter",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 17,
+                        "name": "applyNaturalSunlight",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "x",
+                                "type": "int"
+                            }
+                        ],
+                        "index": 18,
+                        "name": "applyMergeFilter",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 19,
+                        "name": "undo",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 20,
+                        "name": "redo",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "x",
+                                "type": "int"
+                            },
+                            {
+                                "name": "y",
+                                "type": "int"
+                            }
+                        ],
+                        "index": 21,
+                        "name": "resize",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "x",
+                                "type": "int"
+                            },
+                            {
+                                "name": "y",
+                                "type": "int"
+                            },
+                            {
+                                "name": "w",
+                                "type": "int"
+                            },
+                            {
+                                "name": "h",
+                                "type": "int"
+                            }
+                        ],
+                        "index": 22,
+                        "name": "crop",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 23,
+                        "name": "applyInfraRed",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 24,
+                        "name": "applyMidNight",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "x",
+                                "type": "float"
+                            }
+                        ],
+                        "index": 25,
+                        "name": "skewImage",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "x",
+                                "type": "float"
+                            }
+                        ],
+                        "index": 26,
+                        "name": "applyGamma",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "x",
+                                "type": "float"
+                            }
+                        ],
+                        "index": 27,
+                        "name": "applyContrast",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "x",
+                                "type": "float"
+                            }
+                        ],
+                        "index": 28,
+                        "name": "applyVignette",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "x",
+                                "type": "float"
+                            }
+                        ],
+                        "index": 29,
+                        "name": "applyNoise",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 30,
+                        "name": "applyFishEye",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 31,
+                        "name": "applyToonyEffect",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 32,
+                        "name": "applyEmboss",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "frameType",
+                                "type": "int"
+                            },
+                            {
+                                "name": "thickness",
+                                "type": "int"
+                            },
+                            {
+                                "name": "inner",
+                                "type": "int"
+                            },
+                            {
+                                "name": "gap",
+                                "type": "int"
+                            },
+                            {
+                                "name": "R",
+                                "type": "uint"
+                            },
+                            {
+                                "name": "G",
+                                "type": "uint"
+                            },
+                            {
+                                "name": "B",
+                                "type": "uint"
+                            }
+                        ],
+                        "index": 33,
+                        "name": "applyFrame",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "x",
+                                "type": "float"
+                            },
+                            {
+                                "name": "y",
+                                "type": "float"
+                            },
+                            {
+                                "name": "z",
+                                "type": "float"
+                            }
+                        ],
+                        "index": 34,
+                        "name": "applyHue",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 35,
+                        "name": "applyGlitch",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 36,
+                        "name": "applyPixelArt",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 37,
+                        "name": "sharpen",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 38,
+                        "name": "applyNightyeffect",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 39,
+                        "name": "reset",
+                        "returnType": "void"
+                    }
+                ],
+                "object": true,
+                "properties": [
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "index": 0,
+                        "name": "imageSource",
+                        "notify": "imageSourceChanged",
+                        "read": "imageSource",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QUrl",
+                        "user": false,
+                        "write": "setImageSource"
+                    }
+                ],
+                "qualifiedClassName": "Filters_Class",
+                "signals": [
+                    {
+                        "access": "public",
+                        "index": 0,
+                        "name": "imageSourceChanged",
+                        "returnType": "void"
+                    }
+                ],
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QObject"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "filters_class.h",
+        "outputRevision": 69
+    }
+]

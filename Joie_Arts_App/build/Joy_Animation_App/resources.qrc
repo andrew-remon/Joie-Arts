@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/">
+        <file>assets/JA_Logo.svg</file>
+    </qresource>
+</RCC>

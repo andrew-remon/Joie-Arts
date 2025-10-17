@@ -1,0 +1,15 @@
+-rootPath
+M:/QT_QML_Project/Joy_Animation_App
+-cmake-output
+-output-file
+M:/QT_QML_Project/Joy_Animation_App/build/.qt/qml_imports/appJoy_Animation_App_conf.cmake
+-importPath
+M:/QT_QML_Project/Joy_Animation_App/build/Joy_Animation_App
+-importPath
+M:/QT_QML_Project/Joy_Animation_App/build
+-importPath
+M:/Setups/QT/6.9.3/mingw_64/qml
+-qrcFiles
+M:/QT_QML_Project/Joy_Animation_App/build/.qt/rcc/qmake_Joy_Animation_App.qrc
+M:/QT_QML_Project/Joy_Animation_App/build/.qt/rcc/appJoy_Animation_App_raw_qml_0.qrc
+M:/QT_QML_Project/Joy_Animation_App/build/.qt/rcc/resources.qrc

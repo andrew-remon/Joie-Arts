@@ -1,0 +1,41 @@
+# ninja log v6
+18	90	7813604543010219	.qt/appJoy_Animation_App_res.txt	fb5aecb0ada87496
+46	156	7813606274739614	M:/VSC projects'/QT QML Project/Joy_Animation_App/build/Desktop_Qt_6_9_3_MinGW_64_bit-Debug/.qt/qml_imports/appJoy_Animation_App_build.cmake	e576e7483b42b238
+18	90	7813604543010219	M:/VSC projects'/QT QML Project/Joy_Animation_App/build/Desktop_Qt_6_9_3_MinGW_64_bit-Debug/.qt/appJoy_Animation_App_res.txt	fb5aecb0ada87496
+326	388	7813604545994678	.qt/rcc/qrc_qmake_Joy_Animation_App.cpp	85cac56696cae43d
+36	76	7813606273961873	.qt/appJoy_Animation_App_qml.txt	b099a1a2aeb41df5
+46	156	7813606274739614	.qt/qml_imports/appJoy_Animation_App_build.cmake	e576e7483b42b238
+2059	2227	7813606293819292	appJoy_Animation_App.exe	99561b9c4f46268f
+156	275	7813606274799689	appJoy_Animation_App_autogen/timestamp	104066a36f52eafa
+156	275	7813606274799689	appJoy_Animation_App_autogen/mocs_compilation.cpp	104066a36f52eafa
+36	76	7813606273961873	M:/VSC projects'/QT QML Project/Joy_Animation_App/build/Desktop_Qt_6_9_3_MinGW_64_bit-Debug/.qt/appJoy_Animation_App_qml.txt	b099a1a2aeb41df5
+156	275	7813606274799689	M:/VSC projects'/QT QML Project/Joy_Animation_App/build/Desktop_Qt_6_9_3_MinGW_64_bit-Debug/appJoy_Animation_App_autogen/timestamp	104066a36f52eafa
+156	275	7813606274799689	M:/VSC projects'/QT QML Project/Joy_Animation_App/build/Desktop_Qt_6_9_3_MinGW_64_bit-Debug/appJoy_Animation_App_autogen/mocs_compilation.cpp	104066a36f52eafa
+326	388	7813604545994678	M:/VSC projects'/QT QML Project/Joy_Animation_App/build/Desktop_Qt_6_9_3_MinGW_64_bit-Debug/.qt/rcc/qrc_qmake_Joy_Animation_App.cpp	85cac56696cae43d
+281	312	7813606276320809	.qt/rcc/qrc_appJoy_Animation_App_raw_qml_0.cpp	67b5dea6ad7b21c0
+281	312	7813606276320809	M:/VSC projects'/QT QML Project/Joy_Animation_App/build/Desktop_Qt_6_9_3_MinGW_64_bit-Debug/.qt/rcc/qrc_appJoy_Animation_App_raw_qml_0.cpp	67b5dea6ad7b21c0
+332	410	7813604546180548	.rcc/qmlcache/appJoy_Animation_App_qmlcache_loader.cpp	ac4659e471c8368a
+332	410	7813604546180548	M:/VSC projects'/QT QML Project/Joy_Animation_App/build/Desktop_Qt_6_9_3_MinGW_64_bit-Debug/.rcc/qmlcache/appJoy_Animation_App_qmlcache_loader.cpp	ac4659e471c8368a
+275	303	7813606275993374	meta_types/appJoy_Animation_App_json_file_list.txt	daf61ecd81c37849
+927	1130	7813604552951301	M:/VSC projects'/QT QML Project/Joy_Animation_App/build/Desktop_Qt_6_9_3_MinGW_64_bit-Debug/appjoy_animation_app_qmltyperegistrations.cpp	f3a1d7ac2d16c1c3
+303	394	7813606277098310	.rcc/qmlcache/appJoy_Animation_App_Main_qml.cpp	642848eb45682aeb
+275	303	7813606275993374	meta_types/appJoy_Animation_App_json_file_list.txt.timestamp	daf61ecd81c37849
+456	927	7813604551380986	meta_types/qt6appjoy_animation_app_debug_metatypes.json	178184c00b3be447
+275	303	7813606275993374	M:/VSC projects'/QT QML Project/Joy_Animation_App/build/Desktop_Qt_6_9_3_MinGW_64_bit-Debug/meta_types/appJoy_Animation_App_json_file_list.txt	daf61ecd81c37849
+410	2059	7813606277334212	CMakeFiles/appJoy_Animation_App.dir/build/Desktop_Qt_6_9_3_MinGW_64_bit-Debug/.rcc/qmlcache/appJoy_Animation_App_qmlcache_loader.cpp.obj	67f8f5e9250ac82d
+275	303	7813606275993374	M:/VSC projects'/QT QML Project/Joy_Animation_App/build/Desktop_Qt_6_9_3_MinGW_64_bit-Debug/meta_types/appJoy_Animation_App_json_file_list.txt.timestamp	daf61ecd81c37849
+456	927	7813604551380986	meta_types/qt6appjoy_animation_app_debug_metatypes.json.gen	178184c00b3be447
+456	927	7813604551380986	M:/VSC projects'/QT QML Project/Joy_Animation_App/build/Desktop_Qt_6_9_3_MinGW_64_bit-Debug/meta_types/qt6appjoy_animation_app_debug_metatypes.json.gen	178184c00b3be447
+303	394	7813606277098310	.rcc/qmlcache/appJoy_Animation_App_Main_qml.cpp.aotstats	642848eb45682aeb
+456	927	7813604551380986	M:/VSC projects'/QT QML Project/Joy_Animation_App/build/Desktop_Qt_6_9_3_MinGW_64_bit-Debug/meta_types/qt6appjoy_animation_app_debug_metatypes.json	178184c00b3be447
+927	1130	7813604552951301	appjoy_animation_app_qmltyperegistrations.cpp	f3a1d7ac2d16c1c3
+927	1130	7813604552951301	Joy_Animation_App/appJoy_Animation_App.qmltypes	f3a1d7ac2d16c1c3
+927	1130	7813604552951301	M:/VSC projects'/QT QML Project/Joy_Animation_App/build/Desktop_Qt_6_9_3_MinGW_64_bit-Debug/Joy_Animation_App/appJoy_Animation_App.qmltypes	f3a1d7ac2d16c1c3
+303	394	7813606277098310	M:/VSC projects'/QT QML Project/Joy_Animation_App/build/Desktop_Qt_6_9_3_MinGW_64_bit-Debug/.rcc/qmlcache/appJoy_Animation_App_Main_qml.cpp	642848eb45682aeb
+303	394	7813606277098310	M:/VSC projects'/QT QML Project/Joy_Animation_App/build/Desktop_Qt_6_9_3_MinGW_64_bit-Debug/.rcc/qmlcache/appJoy_Animation_App_Main_qml.cpp.aotstats	642848eb45682aeb
+394	445	7813606277183475	CMakeFiles/appJoy_Animation_App.dir/appJoy_Animation_App_autogen/mocs_compilation.cpp.obj	d670d5409fca2f8b
+406	463	7813606277304217	CMakeFiles/appJoy_Animation_App.dir/build/Desktop_Qt_6_9_3_MinGW_64_bit-Debug/.qt/rcc/qrc_qmake_Joy_Animation_App.cpp.obj	6bac7c8de6ebfc66
+418	475	7813606277419328	CMakeFiles/appJoy_Animation_App.dir/build/Desktop_Qt_6_9_3_MinGW_64_bit-Debug/.qt/rcc/qrc_appJoy_Animation_App_raw_qml_0.cpp.obj	6cbfbd943b5db7c4
+402	1751	7813606277253524	CMakeFiles/appJoy_Animation_App.dir/appjoy_animation_app_qmltyperegistrations.cpp.obj	c1a28d576d8c51a
+414	1792	7813606277379287	CMakeFiles/appJoy_Animation_App.dir/build/Desktop_Qt_6_9_3_MinGW_64_bit-Debug/.rcc/qmlcache/appJoy_Animation_App_Main_qml.cpp.obj	3536e8c8e3110c29
+398	1855	7813606277223529	CMakeFiles/appJoy_Animation_App.dir/main.cpp.obj	4c6f8b1a7847feaf

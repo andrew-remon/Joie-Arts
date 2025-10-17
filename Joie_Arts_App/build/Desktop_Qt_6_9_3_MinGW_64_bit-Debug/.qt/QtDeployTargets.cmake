@@ -1,0 +1,3 @@
+set(__QT_DEPLOY_TARGET_appJoy_Animation_App_FILE M:/VSC projects'/QT QML Project/Joy_Animation_App/build/Desktop_Qt_6_9_3_MinGW_64_bit-Debug/appJoy_Animation_App.exe)
+set(__QT_DEPLOY_TARGET_appJoy_Animation_App_TYPE EXECUTABLE)
+set(__QT_DEPLOY_TARGET_appJoy_Animation_App_RUNTIME_DLLS M:/Setups/QT/6.9.3/mingw_64/bin/Qt6Quick.dll;M:/Setups/QT/6.9.3/mingw_64/bin/Qt6QmlMeta.dll;M:/Setups/QT/6.9.3/mingw_64/bin/Qt6QmlWorkerScript.dll;M:/Setups/QT/6.9.3/mingw_64/bin/Qt6QmlModels.dll;M:/Setups/QT/6.9.3/mingw_64/bin/Qt6Qml.dll;M:/Setups/QT/6.9.3/mingw_64/bin/Qt6Network.dll;M:/Setups/QT/6.9.3/mingw_64/bin/Qt6OpenGL.dll;M:/Setups/QT/6.9.3/mingw_64/bin/Qt6Gui.dll;M:/Setups/QT/6.9.3/mingw_64/bin/Qt6Core.dll)
