@@ -23,7 +23,7 @@ Below are snapshots of the application in action:
 
 | Interface Preview | Example Filter Output |
 |--------------------|----------------------|
-| ![App GUI Screenshot 1](images/gui_overview.png) | ![Filter Example](images/filter_sample.png) |
+| ![App GUI Screenshot 1](App%20Snapshots/1.jpeg) | ![Filter Example](App%20Snapshots/4.jpeg) |
 
 🎥 **YouTube Demo:**  
 A full demonstration video showing the GUI workflow will be available in the repository:  
