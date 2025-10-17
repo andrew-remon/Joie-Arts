@@ -122,15 +122,15 @@ A video demonstration, detailed documentation, and design diagrams are available
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/<your-username>/Joy-Animation-App.git
-   cd Joy-Animation-App
+   git clone https://github.com/andrew-remon/Joie-Arts.git
+   cd Joie-Arts
 2. **Compile the project**
    Make sure  you have a C++ compiler installed
    ```bash
-   g++ -o JoyAnimationApp main.cpp
+   g++ -o JoieArts main.cpp
 3. **Run the executable**
    ```bash
-   ./JoyAnimationApp
+   ./JoieArts
 4. **Follow the on-screen menu**
    - Load an image
    - Apply your desired filters
